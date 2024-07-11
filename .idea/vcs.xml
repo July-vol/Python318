@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/318/pythonProject" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/318/pythonProject/Python318" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/318/pythonProject/dest" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/318/pythonProject/dest/my-project" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/318/pythonProject/dest/my-project/Python318" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/318/pythonProject/dest/my-project/newrepo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/318/pythonProject/dest/my-project/newrepo/liggghts" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/318/pythonProject/folder/Python318" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/318/pythonProject/liggghts" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/Python318" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repo" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repo/Python318" vcs="Git" />
+  </component>
+</project>
