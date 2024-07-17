@@ -2827,14 +2827,324 @@
 #  В правом верхнем углу github нажать на + новый репозиторий - имя - публичный, создать , вставить в гит БАШ
 
 # git push -u origin master
-#git remote add origin https://github.com/July-vol/Python318.git
+# git remote add origin https://github.com/July-vol/Python318.git
 # выложить данные на GitHub
 # 0) git status
 # 1) git add .
 # 3) git commit -m "название коммитa"
 # 4)git push -переносит данные с локального репозитория на удаленный репозиторий
 
+#
+# print("Данные переносим на GitHub")
+#
+# print("ДЗ от 02.03.2024")
 
-print("Данные переносим на GitHub")
+# \\\\\\\\\\ПРАКТИКА 03.03.2024\\\\\\\\\\\\\\\\\\\\\\
+# map(func, iterable),  filter(func, iterable) - уже готовые циклы
+# Полный вариант:
+#
+# def mult(t):
+#     return t * 2
 
-print("ДЗ от 02.03.2024")
+
+# lst = [2, 8, 12, -5, -10]
+#
+# lst2 = list(map(lambda t: t * 2, lst))
+# print(lst2)
+
+# print(list(map(lambda t: t * 2, [2, 8, 12, -5, -10])))
+
+
+# l1 = [1, 2, 3]
+# l2 = [4, 5, 6]
+#
+# res = list(map(lambda x, y: x + y, l1, l2))
+# print(res)
+
+# Если из функции возвращается больше 1 элемента, то это возвращается кортеж
+# st = ['a', 'b', 'c', 'd', 'e']
+# num = [1, 2, 3, 4, 5]
+#
+# res = dict(map(lambda x, y: (x, y), num, st))
+# print(res)
+
+
+# ////// Задача № 1./////// Найти поэлементно сумму чисел двух списков:# l1 = [1, 2, 3]
+# # l2 = [4, 5, 6]
+# [5, 7, 9]
+
+
+# l1 = [1, 2, 3]
+# l2 = [4, 5, 6]
+#
+# res = list(map(lambda x, y: x + y, l1, l2))
+# print(res)
+# map -изменяет все элементы, а  filter -нет
+# def func(s):
+#     return len(s) == 3
+#
+#
+# t = ('abcd', 'abc', 'asdfg', 'def', 'ert', '')  # 'abcdabcdabcd'
+#
+# t2 = tuple(filter(lambda s: len(s) == 3, t))  # t2 = ('abc', 'def', 'ert')(s -принимаемый аргумент функции(можно
+# # поменять на любой)
+# t2 = tuple(filter(func, t))  # t2 = ('abc', 'def', 'ert')
+# print(t2)
+
+# b = [60, 90, 68, 59, 76, 60, 88, 74, 81, 65] res = list(filter(lambda s: s > 75, b)) print(res) ////// Задача №
+# 2.///////  Сгенерировать список  из десяти элементов случайным образом. Из полученного списка чисед выбрать только
+# те, которые находятся в диапазоне  от 10 до 20  (включительно). [11, 6, 8, 15, 25, 6, 20, 22, 38, 15]
+# [11, 15, 20, 15]
+# from random import randint
+#
+# lst = [randint(1, 40) for i in range(10)]
+# print(lst)
+#
+# lst2 = list(filter(lambda t: 10 <= t <= 20, lst))
+# print(lst2)
+
+
+# m = list(map(lambda x: x ** 2, filter(lambda x: x % 2, range(10))))
+# print(m)
+#
+# m1 = [x ** 2 for x in range(10) if x % 2]
+# print(m1)
+
+
+# Декораторы
+
+# def hello():
+#     return "Hello, I am func 'hello'"
+#
+#
+# def super_func(func):
+#     print("Hello, I am func 'super_func'")
+#     print(func())
+#
+#
+# super_func(hello)
+#
+# def hello():
+#     return "Hello, I am func 'hello'"
+#
+#
+# test = hello
+# print(test())
+
+# def my_decorator(func):
+#     def inner():
+#         print("*" * 48)
+#         # print("Code before")
+#         func()
+#         # print("Code after")
+#         print("=" * 48)
+#
+#     return inner
+#
+#
+# @my_decorator
+# def hello():
+#     print("Hello, I am func 'hello'")
+#
+#
+# # @my_decorator - декоратор
+# def func_test():  # декорирующая функция
+#     print("Hello, I am func 'func_test'")
+#
+#
+# test = my_decorator(func_test)
+# test()
+# hello()
+
+# def my_decorator(func):  # декорирующая функция
+#     def inner():
+#         print("*" * 40)
+#         func()
+#         print("=" * 40)
+#
+#     return inner
+#
+#
+# @my_decorator  # декоратор
+# def func_test():  # декорируемая функция
+#     print("Hello, I am func 'func_test'")
+#
+#
+# @my_decorator
+# def hello():
+#     print("Hello, I am func 'hello'")
+#
+#
+# func_test()
+# hello()
+
+# def bold(fn):
+#     def wrap():
+#         return "<b>" + fn() + "</b>"
+#
+#     return wrap
+#
+#
+# def italic(fn):
+#     def wrap():
+#         return "<i>" + fn() + "</i>"
+#
+#     return wrap
+#
+#
+# @bold
+# @italic
+# def hello():
+#     return "text"
+#
+#
+# print(hello())
+
+# def cnt(fn):
+#     count = 0  # 3
+#
+#     def wrap():
+#         nonlocal count
+#         count += 1
+#         fn()
+#         print("Вызов функции:", count)
+#
+#     return wrap
+#
+#
+# @cnt
+# def hello():
+#     print("Hello")
+#
+#
+# hello()
+# hello()
+# hello()
+# hello()
+# hello()
+# hello()
+# hello()
+# hello()
+# hello()
+
+#
+# def args_decorator(fn):
+#     def wrap(arg1, arg2):
+#         print("Данные:", arg1, arg2)
+#         fn(arg1, arg2)
+#
+#     return wrap
+#
+#
+# @args_decorator
+# def print_full_name(name, surname):
+#     print("Меня зовут", name, surname)
+#
+#
+# print_full_name("Ирина", "Ветрова")
+#
+#
+# def args_decorator(fn):
+#     def wrap(*args, **kwargs):
+#         print("args:", args)
+#         print("kwargs:", kwargs)
+#         fn(*args, **kwargs)
+#
+#     return wrap
+#
+#
+# @args_decorator
+# def print_full_name(a, b, c, study="Python"):
+#     print(a, b, c, "изучают", study, "\n")
+#
+#
+# print_full_name("Ирина", "Борис", "Светлана", study="JavaScript")
+# print_full_name("Владимир", "Екатерина", "Виктор")
+#
+
+
+# def decor(args1, args2):
+#     def args_dec(fn):
+#         def wrap(x, y):
+#             print(args1, x, args2, y, "=", end=" ")
+#             fn(x, y)
+#
+#         return wrap
+#     return args_dec
+#
+#
+# @decor("Сумма:", "+")
+# def summa(a, b):
+#     print(a + b)
+#
+#
+# @decor("Разность:", "-")
+# def sub(a, b):
+#     print(a - b)
+#
+#
+# @decor("Произведение:", "*")
+# def mul(a, b):
+#     print(a * b)
+#
+#
+# n = 5
+# m = 2
+# summa(n, m)
+# sub(n, m)
+# mul(n, m)
+
+def multiply(arg):
+    def decor(fn):
+        def wrap(*args, **kwargs):
+            return arg * fn(*args, **kwargs)
+
+        return wrap
+    return decor
+
+
+@multiply(3)
+def return_num(num):
+    return num
+
+
+print(return_num(5))
+
+def avg(fn):
+    def wrap(*args):
+        return fn(*args) / len(args)
+
+    return wrap
+
+
+@avg
+def summa(*args):
+    return sum(args)
+
+
+print(summa(2, 3, 3, 4))
+
+# Строки
+
+# print(10)
+# print(bin(18))  # 0b10010 => 0b - двоичная система
+# print(oct(18))  # 0o22 => 0o - восьмиричная
+# print(hex(18))  # 0x12 => 0x - шестнадцатеричная
+#
+# print(0b10010 + 0o22)
+# print(0o22)
+# print(0x12 + 0o22)
+
+# q = 'Pyt'
+# w = "hon"
+# e = q + w
+# print(e)  # Python => Pytton
+# # print(e * 3)
+# # print("y" in e)
+# # print("l" in e)
+# # print(e[1])
+# # print(e[-1])
+# # print(e[1:4])
+# # print(e[::-1])
+# e = e[:3] + 't' + e[4:]
+# print(e)
