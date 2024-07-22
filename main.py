@@ -3093,52 +3093,55 @@
 # summa(n, m)
 # sub(n, m)
 # mul(n, m)
+#
+# def multiply(arg):
+#     def decor(fn):
+#         def wrap(*args, **kwargs):
+#             return arg * fn(*args, **kwargs)
+#
+#         return wrap
+#
+#     return decor
+#
+#
+# @multiply(3)
+# def return_num(num):
+#     return num
+#
+#
+# print(return_num(5))
+#
+#
+# def avg(fn):
+#     def wrap(*args):
+#         return fn(*args) / len(args)
+#
+#     return wrap
+#
+#
+# @avg
+# def summa(*args):
+#     return sum(args)
+#
+#
+# print(summa(2, 3, 3, 4))
 
-def multiply(arg):
-    def decor(fn):
-        def wrap(*args, **kwargs):
-            return arg * fn(*args, **kwargs)
-
-        return wrap
-    return decor
-
-
-@multiply(3)
-def return_num(num):
-    return num
-
-
-print(return_num(5))
-
-def avg(fn):
-    def wrap(*args):
-        return fn(*args) / len(args)
-
-    return wrap
-
-
-@avg
-def summa(*args):
-    return sum(args)
-
-print(summa(2, 3, 3, 4))
-
+# \\\\\\\\\\ПРАКТИКА .03.03.py\\\\\\\\\\\\\\\\\\\\\\
 # Строки
-
 # print(10)
 # print(bin(18))  # 0b10010 => 0b - двоичная система
-# print(oct(18))  # 0o22 => 0o - восьмиричная
+# print(oct(18))  # 0o22 => 0o - восьмеричная
 # print(hex(18))  # 0x12 => 0x - шестнадцатеричная
 #
 # print(0b10010 + 0o22)
-# print(0o22)
+# # print(0o22)
 # print(0x12 + 0o22)
 
 # q = 'Pyt'
 # w = "hon"
 # e = q + w
 # print(e)  # Python => Pytton
-# # print(e * 3)
+# print(e * 3)
 # # print("y" in e)
 # # print("l" in e)
 # # print(e[1])
@@ -3147,3 +3150,226 @@ print(summa(2, 3, 3, 4))
 # # print(e[::-1])
 # e = e[:3] + 't' + e[4:]
 # print(e)
+#
+# print("Привет")
+# print(u"Привет")
+
+# print("C:\\folder\\file.txt")
+# print(r"C:\folder\file.txt")
+# print(r"C:\folder\\"[:-1])
+# print(r"C:\folder" + "\\")
+# print("C:\\folder\\")
+#
+# name = "Дмитрий"
+# age = 25
+# print("Меня зовут " + name + ". Мне " + str(age) + " лет.")
+# a = f"Меня зовут {name}. Мне {age} лет."
+# print(a)
+# print(f"Число: {round(12.2564, 2)}, {5 + 3}")
+# print(f"Число: {12.2564:.2f}")
+#
+# x = 10
+# y = 5
+# print(f"{x = }, {y = }")
+# print(f"{x} x {y} / 2 = {x * y / 2}")
+
+# dir_name = "folder"
+# file_name = "file.txt"
+# print(fr"home\{dir_name}\{file_name}")
+# print("home\\" + dir_name + "\\" + file_name)
+
+#
+# s = """Строка
+# символов"""
+# print(s)
+# s1 = '''Строка
+# символов'''
+# print(s1)
+# s2 = ("Строка "
+#       "символов")
+# print(s2)
+
+# def square(n):
+#     """Принимает число n, возвращает число n"""
+#     print("Hello")
+#     return n ** 2
+#
+#
+# print(square(5))
+
+from math import pi
+
+
+def cylinder(r, h):
+    """
+    Вычисляет площадь цилиндра.
+
+    Вычисляет площадь цилиндра на основании заданной высоты и радиуса основания
+
+    :param r: положительное число, радиус основания цилиндра
+    :param h: положительное число, высота цилиндра
+    :return: положительное число, площадь цилиндра
+    """
+    return 2 * pi * r * (r + h)
+
+
+print(cylinder(2, 4))
+print(cylinder.__doc__)
+print(sum.__doc__)
+print(len.__doc__)
+print(int.__doc__)
+print(type.__doc__)
+
+# print(ord('a'))
+# print(ord('й'))
+
+# while True:
+#     n = input("-> ")
+#     if n != "-1":
+#         print(ord(n))
+#     else:
+#         break
+
+# st = "Test string for me"
+# arr = [ord(x) for x in st]
+# print("ASCII коды:", arr)
+# arr = [int(sum(arr) / len(arr))] + arr
+# print("Среднее арифметическое", arr)
+# arr += [ord(x) for x in input("-> ")[:3] if ord(x) not in arr]
+# print(arr)
+# print(arr.count(arr[-1]) - 1)
+# arr.sort(reverse=True)
+# print(arr)
+
+
+# print(chr(97))
+# print(chr(35))
+# print(chr(8364))
+
+# a = 97
+# b = 122
+# # if a > b:
+# #     for i in range(b, a + 1):
+# #         print(chr(i), end=" ")
+# # else:
+# #     for i in range(a, b + 1):
+# #         print(chr(i), end=" ")
+# if b > a:
+#     a, b = b, a  # a = 122, b = 97
+#
+# for i in range(b, a + 1):
+#     print(chr(i), end=" ")
+
+
+# print("apple" == "Apple")
+# print("apple" > "Apple")  # 97 > 65
+
+# from random import randint
+#
+# min_ascii = 33
+# max_ascii = 126
+# shortest = 6
+# longest = 16
+#
+#
+# def random_password():
+#     res = ""
+#     for i in range(randint(shortest, longest)):  # range(0, 6)
+#         res += chr(randint(min_ascii, max_ascii))
+#     return res
+#
+#
+# print("Ваш случайный пароль:", random_password())
+
+# Методы строк
+
+# s = "hello, WORLD! I am learning Python."
+# print(s)
+# a = s.capitalize()
+# print(a)  # Hello, world! i am learning python.
+# print(s.lower())  # hello, world! i am learning python.
+# print(s.upper())  # HELLO, WORLD! I AM LEARNING PYTHON.
+# print(s.count('l'))
+# print(s.lower().count('l'))
+
+# print(s.count('h', 1, -4))
+# print(s.count('h'))
+
+# print(s.find("Python"))  # поиск подстроки в строке, возвращает индекс совпадения, если совпадение нет вернет "-1"
+# print(s.index("Python"))  # поиск подстроки в строке, возвращает индекс совпадения, если совпадение нет вернет
+# исключение "ValueError"
+
+# print(s.find("h", 1, -4))
+# print(s.rfind("h1"))
+# print(s.rindex("h1"))
+
+# st = input("Введите два слова через пробел: ")  # "один два"  " " -> 4
+# first = st[:st.find(" ")]
+# second = st[st.find(" ") + 1:]
+#
+# print(second + " " + first)
+
+
+# s = "hello, WORLD! I am learning Python."
+# print(s)
+#
+# print(s.endswith("on."))  # заканчивается ли строка на заданную подстроку -> (True, False)
+# print(s.startswith("I am", 14))  # начинается ли строка на заданной подстроки -> (True, False)
+# print(s.find("I am"))
+
+
+# a = input("Введите число: ")
+# try:
+#     a = int(a)
+#     print(a ** 2)
+# except ValueError:
+#     print("Нужно ввести число")
+
+# print('_123'.isdigit())  # состоит ли строка только из чисел
+# print('123a'.isdigit())
+#
+# a = input("Введите число: ")
+# b = 2
+# if a.isdigit():
+#     a = int(a)
+#     print(a + b)
+# else:
+#     print(a + str(b))
+
+
+# print("abc123Ф!".isalnum())  # состоит ли строка только из букв и цифр
+# print("ABCabc".isalpha())  # состоит ли строка только из букв
+
+
+# print("abc123!@#".islower())  # определяет, являются ли буквенные символы строки в нижнем регистре
+# print("ACV123!@#".isupper())  # определяет, являются ли буквенные символы строки в верхнем регистре
+
+# print('py'.center(10))
+# print('py'.center(11, "-"))
+# print('py'.center(1))
+
+
+# print("     p   y     ".lstrip())
+# print("     py     ".rstrip())
+# print("     py     ".strip())
+#
+# print("https://www.python.org".lstrip("/:pths"))
+# print("https://www.python.orgw".strip("/:pthsw"))
+# print("https://www.python.orgw".lstrip("/:pths").rstrip("w"))
+
+# s = "hello, Python! I am learning Python. Python"
+# print(s.replace("Python", "Java", 2))  # поиск и замена
+
+# s = ""
+# seq = ("a", "b", "c")
+# print(s.join(seq))
+#
+# print("..".join(['1', '2']))  # объединяет итерируемый объект в строку через символ разделитель
+#
+# print(":".join("Hello"))
+
+# print("a b c".split())
+# print("www.python.org".split(".", 1))
+# print("www.python.org".rsplit(".", 1))
+
+# Регулярные выражения
