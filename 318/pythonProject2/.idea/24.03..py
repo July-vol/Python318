@@ -13,4 +13,4 @@ for word in words:
     if word.startswith("е"):
         count += 1
 
-print("Количество слов, начинающихся с 'е':", count)
+print("Количество слов: git push", count)
