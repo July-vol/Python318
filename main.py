@@ -2781,7 +2781,7 @@
 # git --help -если мы не знаем команды, выдаст все.
 # git init -создает пустой репозиторий, применяется 1 раз для репозитория
 # git status - проверка в каком состоянии находится наш репозиторий
-# git add -добавить файлы под веретённый контроль,
+# git add .  -добавить файлы под веретённый контроль,
 # Чтобы гид контролировал файлы - A или --all -добавятся все файлы находящиеся в папках и подпаках
 # main.py - только указанный документ
 # . - добавляет все файлы из текущей папки
@@ -3385,15 +3385,14 @@
 # print("www.python.org".rsplit(".", 1))
 
 # Регулярные выражения
-#
-import re
-#
-#
+
+# import re
+
+
 # s = "Я ищу совпадения в 2024 году. И я их найду в 2 счёта."
 # reg = r"\."
-# print(re.findall(reg, s))  # возвращает список, содержащий все совпадения с шаблоном  # возвращает первое совпадение
-# # с шаблоном
-# print(re.search(reg, s))
+# print(re.findall(reg, s))  # возвращает список, содержащий все совпадения с шаблоном
+# print(re.search(reg, s))  # возвращает первое совпадение с шаблоном
 # # print(re.search(reg, s).span())
 # # print(re.search(reg, s).start())
 # # print(re.search(reg, s).end())
@@ -3403,14 +3402,14 @@ import re
 # print(re.sub(reg, "!", s, 1))  # поиск и замена
 
 # s = r"Я ищу совпадения в 2024 году. И я и^х найду в 2 счё_та. [1938765]. Hel-lo."
-# reg = r"[204]"
-# reg = r"[2-4]"
-# reg = r"[А-Яа-я]"
+# # reg = r"[204]"
+# # reg = r"[2-4]"
+# # reg = r"[А-яЁё]"
 # # reg = r"[A-Za-z9.[\]-]"
-# reg = r"[^0-9]"
+# # reg = r"[^0-9]"
 # reg = r"[12][09][0-9][0-9]"  # 20[00] 19[00]
 # print(re.findall(reg, s))
-# # print(ord("Ё"))  # 1025
+# print(ord("Ё"))  # 1025
 # print(ord("А"))  # 1040
 # print(ord("Я"))  # 1071
 # print(ord("а"))  # 1072
@@ -3421,7 +3420,7 @@ import re
 # st = "Час в 24-часовом формате от 00 до 23. 2021-06-15T21:59. Минуты, в диапазоне от 00 до 59. 2021-06-15T04:09."
 # pattern = "[0-2][0-9]:[0-5][0-9]"
 # print(re.findall(pattern, st))
-#
+
 # s = r"Я ищу совпадения в 2024 году. И я их найду в 2 счё_та. Hel-lo 20000000"
 # reg = r"\d"  # [0-9]
 # reg = r"\D"  # [^0-9]
@@ -3434,8 +3433,8 @@ import re
 # reg = r"\Bния"
 # reg = r"\w+"
 # reg = r"\d+"
-reg = r"20*"
-# print(re.findall(reg, s))
+# reg = r"20*"
+# # print(re.findall(reg, s))
 # кол-во повторений
 # + - от 1 до бесконечности
 # * - от 0 до бесконечности
@@ -3453,7 +3452,7 @@ reg = r"20*"
 # # pattern = r"\w+\s*=\s*[\w\s.]+"
 # pattern = r"\w+\s*=\s*[^;,]+"
 # print(re.findall(pattern, st))
-#
+
 # s1 = "12 сентября 2024 года 4567897"
 # reg1 = r"\d{2,4}"
 # print(re.findall(reg1, s1))
@@ -3553,3 +3552,622 @@ reg = r"20*"
 # s = "yandex-98.ru.com and yandex.ru"
 # reg = r"(([a-z0-9-]{2,}\.)+[a-z]{2,4})"
 # print(re.sub(reg, r"http://\1", s))
+
+# Рекурсия
+
+# def elevator(n):  # 0
+#     if n == 0:
+#         print("Вы в подвале")
+#         return
+#     print("=>", n)
+#     elevator(n - 1)  # стек: 5 4 3 2 1
+#     print(n, end=" ")
+#
+#
+# n1 = int(input("На каком вы этаже: "))  # 5
+# elevator(n1)
+
+#
+# def sum_list(lst):
+#     res = 0
+#     for i in lst:
+#         res += i
+#     return res
+#
+#
+# def sum_list(lst):  # [9]
+#     if len(lst) == 1:
+#         print(lst, "=> lst[0]:", lst[0])
+#         return lst[0]  # 9
+#     else:
+#         print(lst, "=> lst[0]:", lst[0])
+#         return lst[0] + sum_list(lst[1:])  # 1 + 3 + 5 + 7 +
+#
+#
+# print(sum_list([1, 3, 5, 7, 9]))  # 25
+#
+# def to_str(n, base):  # n = 15
+#     convert = "0123456789ABCDEF"
+#     if n < base:
+#         return convert[n]  # convert[15] => 'F'
+#     else:
+#         return to_str(n // base, base) + convert[n % base]  # convert[14] => 'E'
+#
+#
+# print(to_str(17, 16))
+
+# def count_items(item_list):  # ['Adam', ['Bob', ['Chat', 'Cat'], 'Bard', 'Bert'], 'Alex', ['Bea', 'Bill'], "Ann"]
+#     count = 0  # 10
+#     for item in item_list:
+#         if isinstance(item, list):
+#             count += count_items(item)
+#         else:
+#             count += 1
+#     return count
+#
+#
+# names = ['Adam', ['Bob', ['Chat', 'Cat'], 'Bard', 'Bert'], 'Alex', ['Bea', 'Bill'], "Ann"]
+# print(names)
+# print(len(names))
+# # print(isinstance(names, list))
+# # print(isinstance(names[0], list))
+# # print(isinstance(names[1][1][0], list))
+# print(count_items(names))
+#
+#
+# def remove(text):  # text = ""
+#     if not text:  # text = ""
+#         return ""
+#     if text[0] == "\n" or text[0] == " ":
+#         return remove(text[1:])
+#     else:
+#         return text[0] + remove(text[1:])  # "HelloWorld"
+#
+#
+# print(remove(" Hello\nWorld "))
+
+# f = open("test.txt", "r")
+# f = open(r"C:\Users\Пользователь\Desktop\Обучение курсы\318\test.txt", "r")
+# print(f)
+# print(*f)
+# # print(f.mode)
+# # print(f.name)
+# # print(f.encoding)
+# # f.close()
+# print(f.closed)
+
+# f = open("test.txt", "r")
+# print(f.read(3))
+# print(f.read())
+# f.close()
+#
+# f = open("test.txt", "r")
+# print(f.read())
+# f.close()
+
+
+# f = open("test1.txt", "r")
+# print(f.readline())
+# print(f.readline(8))
+# print(f.readline())
+# print(f.readline())
+# f.close()
+
+
+# f = open("test1.txt", "r")
+# print(f.readlines(26))
+# print("count =", len(f.readlines()))
+# f.close()
+
+
+# f = open("test1.txt", "r")
+# for line in f:
+#     print(line)
+# f.close()
+
+
+# f = open("test1.txt", "r")
+# count = 0
+# for line in f:
+#     print(line)
+#     count += 1
+# f.close()
+# print("count =", count)
+
+# f = open("xyz.txt", "w")
+# f.write("Hello\nWorld!!!!")
+# f.close()
+
+# f = open("xyz1.txt", "a")
+# f.write("\nNew text")
+# f.close()
+#
+# line = ['This is line 1\n', 'This is line 2\n']
+# f = open("xyz.txt", "w")
+# f.writelines(line)
+# f.close()
+
+#
+# lst = [i for i in range(1, 20)]
+# print(lst)
+#
+# f = open("xyz.txt", "w")
+# for index in lst:
+#     f.write(str(index))
+# f.close()
+
+
+# f = open("xyz.txt", "r")
+# d = f.read()
+# print(d)
+# print(type(d))
+# f.close()
+
+#
+# lst = [i for i in range(1, 20)]
+# print(lst)
+#
+# f = open("xyz.txt", "w")
+# f.write("\t".join(map(str, lst)))
+# f.close()
+#
+#
+# f = open("xyz.txt", "r")
+# d = f.read()
+# st = list(map(int, d.split("\t")))
+# print(st)
+# print(type(st[0]))
+# f.close()
+
+# #
+# file = "text2.txt"
+#
+# f = open(file, "w")
+# f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;")
+# f.close()
+#
+# f = open(file, "r")
+# read_line = f.readlines()
+# f.close()
+#
+# print(read_line)
+# read_line[1] = "Hello world!\n"
+# print(read_line)
+#
+#
+# f = open(file, "w")
+# f.writelines(read_line)
+# f.close()
+#
+#
+# file = "text2.txt"
+#
+# f = open(file, "w")
+# f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;")
+# f.close()
+
+# f = open(file, "r")
+# s = f.readlines()
+# f.close()
+# print(s)
+#
+# pos = int(input("pos = "))
+# if 0 <= pos < len(s):
+#     del s[pos]
+# else:
+#     print("Индекс введен неверно")
+# print(s)
+#
+# f = open(file, "w")
+# f.writelines(s)
+# f.close()
+
+# f = open("test.txt")
+# print(f.read(3))
+# print(f.tell())  # позиция условного курсора
+# print(f.seek(1))  # перемещение условного курсора в заданную позицию
+# print(f.read())
+# print(f.tell())
+# f.close()
+
+
+# f = open("test.txt", "r+")
+# f.write("I am learning Python")  # "I a-new string-m learning Python"
+# print(f.seek(3))
+# f.write("-new string-")
+# f.close()
+
+# f = open("test.txt", "r+")
+# f.write("I am learning Python")  # "I a-new string-ython"
+# # print(f.seek(3))
+# # f.write("-new string-")
+# print(f.tell())
+# print(f.read())
+# f.close()
+
+# with open('test.txt', "w") as f:
+#     print(f.write('012\n34567\n89'))
+# print(f.closed)
+
+# with open('test.txt', "r") as f:
+#     for line in f:
+#         print(line[:2])
+
+
+# def longest_words(file):
+#     with open(file, "r") as text:  # , encoding="utf-8"
+#         w = text.read().split()
+#         print(w)
+#         max_length = len(max(w, key=len))
+#         res = [word for word in w if len(word) == max_length]
+#         print(max_length)
+#         if len(res) == 1:
+#             return res[0]
+#         return res
+#
+#
+# print(longest_words('test.txt'))
+
+# one = "one.txt"
+# two = "two.txt"
+# three = "three.txt"
+#
+# # text = "Строка №1\nСтрока №2\nСтрока №3\nСтрока №4\nСтрока №5\nСтрока №6\nСтрока №7\n
+# Строка №8\nСтрока №9\nСтрока №10\n"
+# #
+# # with open(one, 'w') as f:
+# #     f.write(text)
+#
+# with open(one, "r") as fr, open(two, "w") as fw:
+#     for line in fr:
+#         line = line.replace("Строка", "Линия -")
+#         fw.write(line)
+
+
+# one = "one.txt"
+# two = "two.txt"
+# three = "three.txt"
+
+# with open(one, "r") as f1:
+#     a = f1.readlines()
+# print(a)
+#
+# with open(two, "r") as f2:
+#     b = f2.readlines()
+# print(b)
+#
+# c = a + b
+# print(c)
+#
+# with open(three, "w") as f3:
+#     f3.writelines(c)
+
+
+# with open(one, "r") as f1, open(two, "r") as f2, open(three, "w") as f3:
+#     a = f1.readlines()
+#     b = f2.readlines()
+#     c = []
+#     for i in range(len(a)):
+#         c.append(a[i])
+#         c.append(b[i])
+#     print(a)
+#     print(b)
+#     print(c)
+#     f3.writelines(c)
+
+# file = "text2.txt"
+#
+# f = open(file, "w")
+# f.write("Замена строки в текстовом файле;\nизменить строку в списке;\nзаписать список в файл;\n")
+# f.close()
+
+# f = open(file, 'r')
+# read_line = f.readlines()
+# f.close()
+#
+# print(read_line)
+# pos1 = int(input("pos1 = "))
+# pos2 = int(input("pos2 = "))
+# if 0 <= pos1 < len(read_line) and 0 <= pos2 < len(read_line):  # a, b = b, a
+#     read_line[pos1], read_line[pos2] = read_line[pos2], read_line[pos1]
+# else:
+#     print("Такой строки нет")
+# print(read_line)
+#
+# f = open(file, "w")
+# f.writelines(read_line)
+# f.close()
+
+# file = "text2.txt"
+#
+# f = open(file)
+# line = 0
+# for i in f:
+#     line += 1
+#     word = 0  # 5
+#     flag = 0  # 1
+#     for j in i:
+#         if j != " " and flag == 0:
+#             word += 1
+#             flag = 1
+#         elif j == " ":
+#             flag = 0
+#
+#     print(i, len(i), "символов", word, "слов")
+#
+# print(line, "строки в документе")
+# f.close()
+
+# \\\\\\\\\\ПРАКТИКА 06.04.py\\\\\\\\\\\\\\\\\\\\\\
+
+# Модуль OS и OS.PATH
+
+import os
+
+
+# import os.path
+
+# print(os.getcwd())  # путь к рабочей директории
+# print(os.listdir())  # список директорий и файлов
+# print(os.listdir(".."))
+#
+# os.mkdir("folder1")  # создать папку
+# os.makedirs("nested1/nested2/nested3")  # создаст папку с промежуточными папками в пути
+# os.remove("folder1/1.txt")  # удалить файл
+# os.rmdir("folder1")  # удалить папку, но пустую
+
+# os.rename("xyz1.txt", "test2.txt")
+# os.rename("folder", "test")  # переименовывает файлы или папки
+
+# os.rename("xyz.txt", "test/xy.txt")
+# os.renames("two.txt", "text/t.txt")  # переименовывает файлы или папки и перемещает их по несуществующему пути,
+# путем его создания
+
+# for root, dirs, files in os.walk("nested1", topdown=False):
+#     print("Root:", root)
+#     print("\tSubdirs:", dirs)
+#     print("\tFiles:", files)
+#
+#
+# def remove_empty_dirs(root_tree):
+#     print(f"Удаление пустых директорий в ветви {root_tree}")
+#     print("-" * 50)
+#     for root, dirs, files in os.walk(root_tree):
+#         if not os.listdir(root):
+#             os.rmdir(root)
+#             print(f"Директория {root} удалена")
+#     print("-" * 50)
+#
+#
+# remove_empty_dirs("nested1")
+
+# print(os.path.split(r"C:\Users\Пользователь\Desktop\Обучение курсы\nested1\nested2\nested3\text.txt"))
+# print(os.path.join(r"C:\Users\Пользователь\Desktop\Обучение курсы", "nested2", "text.txt"))
+
+# dirs = [r'Work\F1', r'Work\F2\F21']
+# for d in dirs:
+#     os.makedirs(d)
+
+# files = {
+#     'Work': ['w.txt'],
+#     r'Work\F1': ['f11.txt', 'f12.txt', 'f13.txt'],
+#     r'Work\F2\F21': ['f211.txt', 'f212.txt']
+# }
+# for d, f in files.items():
+#     for file in f:
+#         file_path = os.path.join(d, file)
+#         open(file_path, "w").close()
+# #
+# files_with_text = [r'Work\w.txt', r'Work\F1\f12.txt', r'Work\F2\F21\f211.txt', r'Work\F2\F21\f212.txt']
+#
+# for file in files_with_text:
+#     with open(file, 'w') as f:
+#         f.write(f"Текст для файла {file}")
+#
+#
+# def print_tree(root, topdown):
+#     print(f"Обход {root} {'сверху вниз' if topdown else 'снизу вверх'}")
+#     for root, dirs, files1 in os.walk(root, topdown):
+#         print(root)
+#         print(dirs)
+#         print(files1)
+#     print("-" * 50)
+#
+#
+# print_tree("Work", False)
+# print_tree("Work", True)
+
+
+# Work\w.txt
+# Work\F1\f11.txt
+# Work\F1\f12.txt
+# Work\F1\f13.txt
+# Work\F2\F21\f211.txt
+# Work\F2\F21\f212.txt
+
+#
+# print(os.path.exists(r"C:\Users\Пользователь\Desktop\Обучение курсы\nested1\nested2\nested3\text.txt"))  #
+# возвращает True если путь существует в # файловой системе
+# import time
+#
+# path = "main.py"
+# print(os.path.getsize(path) / 1024)  # размер файла 81693 байт (79.826171875 KB)
+#
+# print(os.path.getctime(path))  # время создания файла
+# print(os.path.getatime(path))  # время последнего доступа к файлу
+# print(os.path.getmtime(path))  # время последнего изменения файла (в секундах)
+#
+# print(time.strftime("%d.%m.%Y, %H:%M:%S", time.localtime(os.path.getctime(path))))
+# print(time.strftime("%d.%m.%Y, %H:%M:%S", time.localtime(os.path.getmtime(path))))
+
+
+# /////ООП -объектно-ориентированное программирование////// -инкапсуляция -сокрытие каких-то данных-можно сделать
+# защиту на правильность окрестности ввода исходных данных -наследование - это когда есть какой-то родительский класс,
+# и мы можем наследоватся от него дочерним классом и получить за счет мeтодов все свойства родительского класса
+# -полиморфизм -много форм у одного и того же объекта class Point: """Класс для представления координат точек на
+# плоскости""" x = 1 y = 1
+# Класс - указать ключевое слово-  class НазваниеКласса(и указать ключевое требование
+# -каждая буква класса в верхнем регистре):
+# свойства (поля, переменные)
+# методы (функции)
+# атрибуты = свойства и методы.
+# создание экземпляра , который основан на этом классе(Экземпляров можно создавать сколько угодно)
+# Больше в классе ничего не может быть
+#
+class Point:
+    """Класс для предоставления координат точек на плоскости"""
+    x = 1
+    y = 1
+
+p1 = Point()
+p1.x = 5
+p1.y = 10
+p1.z = 30
+print(p1.x)
+print(p1.y)
+print(p1.__dict__)
+
+p2 = Point()
+print(p2.x)
+print(p2.y)
+print(p2.__dict__)
+
+print(id(Point))
+print(id(p1))
+print(id(p2))
+
+print(Point.__dict__)
+print(Point.__doc__)
+
+
+
+
+# class Point:
+#     x = 1
+#     y = 1
+#
+#     def set_coord(self, x, y):
+#         self.x = x
+#         self.y = y
+#         print(self.__dict__)
+#
+#
+# p1 = Point()
+# # p1.x = 5
+# # p1.y = 10
+# p1.set_coord(5, 10)
+# Point.set_coord(p1, 2, 4)
+#
+# p2 = Point()
+# # p2.x = 3
+# # p2.y = 7
+# p2.set_coord(3, 7)
+
+
+# class Human:
+#     name = "name"
+#     birthday = "00.00.0000"
+#     phone = "00-00-00"
+#     country = "country"
+#     city = "city"
+#     address = "street, house"
+#
+#     def print_info(self):
+#         print(" Персональные данные ".center(40, "*"))
+#         print(f"Имя: {self.name}\nДата рождения: {self.birthday}\nНомер телефона: {self.phone}\n"
+#               f"Страна: {self.country}\nГород: {self.city}\nДомашний адрес: {self.address}")
+#         print("=" * 40)
+#
+#     def input_info(self, first_name, birthday, phone, country, city, address):
+#         self.birthday = birthday
+#         self.phone = phone
+#         self.address = address
+#         self.country = country
+#         self.city = city
+#         self.name = first_name
+#
+#     def set_name(self, name):  # устанавливаем новое имя
+#         self.name = name
+#
+#     def get_name(self):  # получаем имя
+#         return self.name
+#
+#     def set_birthday(self, value):
+#         self.birthday = value
+#
+#     def get_birthday(self):
+#         return self.birthday
+#
+#
+# h1 = Human()
+# h1.print_info()
+# h1.input_info("Юля", "23.05.1986", "45-46-98", "Россия", "Москва", "Чистопрудный бульвар, 1А")
+# h1.print_info()
+# h1.set_name("Юлия")
+# print(h1.get_name())
+# h1.set_birthday("25.05.1986")
+# print(h1.get_birthday())
+
+
+# class Person:
+#     skill = 10  # статическое свойство
+#
+#     def __init__(self, name, surname):  # Инициализатор
+#         self.name = name  # динамические свойства
+#         self.surname = surname
+#         print("Инициализатор Person")
+#
+#     def __del__(self):
+#         print("Удаление экземпляра класса")
+#
+#     def print_info(self):
+#         print("Данные сотрудника:", self.name, self.surname)
+#
+#     def add_skill(self, k):
+#         self.skill += k
+#         print("Квалификация сотрудника:", self.skill, end="\n\n")
+#
+#
+# p1 = Person("Виктор", "Резник")
+# p1.print_info()
+# p1.add_skill(3)
+#
+# # del p1
+# p1 = 5
+#
+# p2 = Person("Анна", "Долгих")
+# p2.print_info()
+# p2.add_skill(2)
+
+
+# class Point:
+#     count = 0  # 3
+#
+#     def __init__(self, x, y):
+#         self.x = x
+#         self.y = y
+#         Point.count += 1
+#
+#     def get_coord(self):
+#         print(self.__dict__)
+#
+#
+# p1 = Point(5, 10)
+# p1.get_coord()
+#
+# p2 = Point(3, 7)
+# p2.get_coord()
+#
+# p3 = Point(8, 16)
+# p3.get_coord()
+#
+# print(p1.count)
+# print(p2.count)
+# print(p3.count)
+#
+# print(Point.count)
+
+
+# class Robot:
+#     k = 0
+#
