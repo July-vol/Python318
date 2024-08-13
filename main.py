@@ -4329,41 +4329,41 @@ import os
 # print("Гипотенуза прямоугольника:", a.get_hypotenuse())
 # a.draw()
 
-class Point:
-    __slots__ = "__x", "__y", "z"
-
-    def __init__(self, x, y, z):
-        self.__x = x
-        self.__y = y
-        self.z = z
-
-
-p1 = Point(5, 10, 15)
-# p1.z = 15
+# class Point:
+#     __slots__ = "__x", "__y", "z"
+#
+#     def __init__(self, x, y, z):
+#         self.__x = x
+#         self.__y = y
+#         self.z = z
+#
+#
+# p1 = Point(5, 10, 15)
+# # p1.z = 15
+# # print(p1.__dict__)
+# print(p1.z)
+#
+#
+# class Point:
+#     def __init__(self, x, y):
+#         self.__x = x
+#         self.__y = y
+#
+#     def __set_x(self, x):
+#         self.__x = x
+#         print("__set_x")
+#
+#     def __get_x(self):
+#         print("__get_x")
+#         return self.__x
+#
+#     x = property(__get_x, __set_x)
+#
+#
+# p1 = Point(5, 10)
+# # p1.x = 9
+# print(p1.x)
 # print(p1.__dict__)
-print(p1.z)
-
-
-class Point:
-    def __init__(self, x, y):
-        self.__x = x
-        self.__y = y
-
-    def __set_x(self, x):
-        self.__x = x
-        print("__set_x")
-
-    def __get_x(self):
-        print("__get_x")
-        return self.__x
-
-    x = property(__get_x, __set_x)
-
-
-p1 = Point(5, 10)
-# p1.x = 9
-print(p1.x)
-print(p1.__dict__)
 
 # class Point:
 #     def __init__(self, x, y):
