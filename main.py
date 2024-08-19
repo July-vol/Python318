@@ -3904,6 +3904,7 @@
 
 import os
 
+
 # import os.path
 
 # print(os.getcwd())  # путь к рабочей директории
@@ -6354,40 +6355,39 @@ import os
 # print(p.first_name)
 # print(p.surname)
 
-# class Integer:
-#     @staticmethod
-#     def verify_coord(coord):
-#         if not isinstance(coord, int):
-#             raise ValueError(f"Координата {coord} должно быть целым числом")
-#
-#     def __set_name__(self, owner, name):
-#         self.__name = "_" + name
-#
-#     def __get__(self, instance, owner):
-#         # return instance.__dict__[self.__name]
-#         return getattr(instance, self.__name)
-#
-#     def __set__(self, instance, value):
-#         self.verify_coord(value)
-#         # instance.__dict__[self.__name] = value
-#         setattr(instance, self.__name, value)
-#
-#
-# class Point3D:
-#     x = Integer()
-#     y = Integer()
-#     z = Integer()
-#
-#     def __init__(self, x, y, z):
-#         self.x = x
-#         self.y = y
-#         self.z = z
-#
-#
-# p1 = Point3D(1, 2, 3)
-# print(p1.__dict__)
-# print(p1.x)
+class Integer:
+    @staticmethod
+    def verify_coord(coord):
+        if not isinstance(coord, int):
+            raise ValueError(f"Координата {coord} должно быть целым числом")
 
+    def __set_name__(self, owner, name):
+        self.__name = "_" + name
+
+    def __get__(self, instance, owner):
+        # return instance.__dict__[self.__name]
+        return getattr(instance, self.__name)
+
+    def __set__(self, instance, value):
+        self.verify_coord(value)
+        # instance.__dict__[self.__name] = value
+        setattr(instance, self.__name, value)
+
+
+class Point3D:
+    x = Integer()
+    y = Integer()
+    z = Integer()
+
+    def __init__(self, x, y, z):
+        self.x = x
+        self.y = y
+        self.z = z
+
+
+p1 = Point3D(1, 2, 3)
+print(p1.__dict__)
+print(p1.x)
 
 # Метаклассы
 
@@ -7351,6 +7351,3 @@ import os
 #     db_is_created = os.path.exists(DATABASE_NAME)
 #     if not db_is_created:
 #         db_creator.create_database()
-
-
-
