@@ -6354,40 +6354,40 @@ import os
 # p.surname = "Sidorov"
 # print(p.first_name)
 # print(p.surname)
-
-class Integer:
-    @staticmethod
-    def verify_coord(coord):
-        if not isinstance(coord, int):
-            raise ValueError(f"Координата {coord} должно быть целым числом")
-
-    def __set_name__(self, owner, name):
-        self.__name = "_" + name
-
-    def __get__(self, instance, owner):
-        # return instance.__dict__[self.__name]
-        return getattr(instance, self.__name)
-
-    def __set__(self, instance, value):
-        self.verify_coord(value)
-        # instance.__dict__[self.__name] = value
-        setattr(instance, self.__name, value)
-
-
-class Point3D:
-    x = Integer()
-    y = Integer()
-    z = Integer()
-
-    def __init__(self, x, y, z):
-        self.x = x
-        self.y = y
-        self.z = z
-
-
-p1 = Point3D(1, 2, 3)
-print(p1.__dict__)
-print(p1.x)
+#
+# class Integer:
+#     @staticmethod
+#     def verify_coord(coord):
+#         if not isinstance(coord, int):
+#             raise ValueError(f"Координата {coord} должно быть целым числом")
+#
+#     def __set_name__(self, owner, name):
+#         self.__name = "_" + name
+#
+#     def __get__(self, instance, owner):
+#         # return instance.__dict__[self.__name]
+#         return getattr(instance, self.__name)
+#
+#     def __set__(self, instance, value):
+#         self.verify_coord(value)
+#         # instance.__dict__[self.__name] = value
+#         setattr(instance, self.__name, value)
+#
+#
+# class Point3D:
+#     x = Integer()
+#     y = Integer()
+#     z = Integer()
+#
+#     def __init__(self, x, y, z):
+#         self.x = x
+#         self.y = y
+#         self.z = z
+#
+#
+# p1 = Point3D(1, 2, 3)
+# print(p1.__dict__)
+# print(p1.x)
 
 # Метаклассы
 
@@ -6581,158 +6581,158 @@ print(p1.x)
 # b = json.dumps(x, ensure_ascii=False)
 # print(b)
 # print(json.loads(a))
+#
+# import json
+# from random import choice
+#
+#
+# def gen_person():
+#     name = ''
+#     tel = ''
+#
+#     letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
+#     nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+#
+#     while len(name) != 7:
+#         name += choice(letters)
+#     # print(name)
+#
+#     while len(tel) != 10:
+#         tel += choice(nums)
+#     # print(tel)
+#
+#     person = {
+#         'name': name,
+#         "tel": tel
+#     }
+#     return person
+#
+#
+# def write_json(person_dict):
+#     try:
+#         data = json.load(open('persons1.json'))
+#     except FileNotFoundError:
+#         data = {}
+#     with open('persons.json', 'w') as f:
+#         json.dump(data, f, indent=2, ensure_ascii=False)
+#
+#
+# for i in range(5):
+#     write_json(gen_person())
 
 import json
-from random import choice
+
+data = {}
 
 
-def gen_person():
-    name = ''
-    tel = ''
+class CountryCapital:
+    def __init__(self, country, capital):
+        self.country = country
+        self.capital = capital
+        data[self.country] = self.capital
 
-    letters = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h']
-    nums = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '0']
+    def __str__(self):
+        return f"{self.country}: {self.capital}"
 
-    while len(name) != 7:
-        name += choice(letters)
-    # print(name)
+    @staticmethod
+    def load_data(filename):
+        try:
+            date = json.load(open(filename))
+        except FileNotFoundError:
+            date = {}
+        finally:
+            return date
 
-    while len(tel) != 10:
-        tel += choice(nums)
-    # print(tel)
+    @staticmethod
+    def add_country(filename):
+        country_name = input("Введите название страны(заглавной буквы): ")
+        capital_name = input("Введите название столицы(с заглавной буквы): ")
+        # try:
+        #     date = json.load(open(filename))
+        # except FileNotFoundError:
+        #     date = {}
+        date = CountryCapital.load_data(filename)
 
-    person = {
-        'name': name,
-        "tel": tel
-    }
-    return person
+        date[country_name] = capital_name
+        with open(filename, "w") as f:
+            json.dump(date, f, indent=2)
+
+    @staticmethod
+    def load_from_file(filename):
+        with open(filename, "r") as f:
+            print(json.load(f))
+
+    @staticmethod
+    def delete_country(filename):
+        del_country = input("Введите название страны: ")
+
+        # try:
+        #     date = json.load(open(filename))
+        # except FileNotFoundError:
+        #     date = {}
+        date = CountryCapital.load_data(filename)
+
+        if del_country in date:
+            del date[del_country]
+
+            with open(filename, "w") as f:
+                json.dump(date, f, indent=2)
+        else:
+            print("Такой страны в базе нет")
+
+    @staticmethod
+    def search_data(filename):
+        country = input("Введите название страны: ")
+
+        # try:
+        #     date = json.load(open(filename))
+        # except FileNotFoundError:
+        #     date = {}
+        date = CountryCapital.load_data(filename)
+
+        if country in date:
+            print(f"Страна {country} столица {date[country]} есть в словаре")
+        else:
+            print(f"Страны {country} нет в словаре")
+
+    @staticmethod
+    def edit_data(filename):
+        country = input("Введите страну для корректировки: ")
+        new_capital = input("Введите новое название столицы: ")
+
+        # try:
+        #     date = json.load(open(filename))
+        # except FileNotFoundError:
+        #     date = {}
+        date = CountryCapital.load_data(filename)
+
+        if country in date:
+            date[country] = new_capital
+            with open(filename, "w") as f:
+                json.dump(date, f, indent=2)
+        else:
+            print("Такой страны в базе нет")
 
 
-def write_json(person_dict):
-    try:
-        data = json.load(open('persons1.json'))
-    except FileNotFoundError:
-        data = {}
-    with open('persons.json', 'w') as f:
-        json.dump(data, f, indent=2, ensure_ascii=False)
-
-
-for i in range(5):
-    write_json(gen_person())
-
-# import json
-#
-# data = {}
-
-
-# class CountryCapital:
-#     def __init__(self, country, capital):
-#         self.country = country
-#         self.capital = capital
-#         data[self.country] = self.capital
-#
-#     def __str__(self):
-#         return f"{self.country}: {self.capital}"
-#
-#     @staticmethod
-#     def load_data(filename):
-#         try:
-#             date = json.load(open(filename))
-#         except FileNotFoundError:
-#             date = {}
-#         finally:
-#             return date
-#
-#     @staticmethod
-#     def add_country(filename):
-#         country_name = input("Введите название страны: ")
-#         capital_name = input("Введите название столицы: ")
-#         # try:
-#         #     date = json.load(open(filename))
-#         # except FileNotFoundError:
-#         #     date = {}
-#         date = CountryCapital.load_data(filename)
-#
-#         date[country_name] = capital_name
-#         with open(filename, "w") as f:
-#             json.dump(date, f, indent=2)
-#
-#     @staticmethod
-#     def load_from_file(filename):
-#         with open(filename, "r") as f:
-#             print(json.load(f))
-#
-#     @staticmethod
-#     def delete_country(filename):
-#         del_country = input("Введите название страны: ")
-#
-#         # try:
-#         #     date = json.load(open(filename))
-#         # except FileNotFoundError:
-#         #     date = {}
-#         date = CountryCapital.load_data(filename)
-#
-#         if del_country in date:
-#             del date[del_country]
-#
-#             with open(filename, "w") as f:
-#                 json.dump(date, f, indent=2)
-#         else:
-#             print("Такой страны в базе нет")
-#
-#     @staticmethod
-#     def search_data(filename):
-#         country = input("Введите название страны: ")
-#
-#         # try:
-#         #     date = json.load(open(filename))
-#         # except FileNotFoundError:
-#         #     date = {}
-#         date = CountryCapital.load_data(filename)
-#
-#         if country in date:
-#             print(f"Страна {country} столица {date[country]} есть в словаре")
-#         else:
-#             print(f"Страны {country} нет в словаре")
-#
-#     @staticmethod
-#     def edit_data(filename):
-#         country = input("Введите страну для корректировки: ")
-#         new_capital = input("Введите новое название столицы: ")
-#
-#         # try:
-#         #     date = json.load(open(filename))
-#         # except FileNotFoundError:
-#         #     date = {}
-#         date = CountryCapital.load_data(filename)
-#
-#         if country in date:
-#             date[country] = new_capital
-#             with open(filename, "w") as f:
-#                 json.dump(date, f, indent=2)
-#         else:
-#             print("Такой страны в базе нет")
-#
-#
-# file = 'list_capital.json'
-# index = ''
-# while True:
-#     index = input("Выбор действия:\n1 - добавление данных\n2 - удаление данных\n3 - поиск данных\n4 - "
-#                   "редактирование данных\n5 - просмотр данных\n6 - завершение работы\nВвод: ")
-#     if index == "1":
-#         CountryCapital.add_country(file)
-#     elif index == "2":
-#         CountryCapital.delete_country(file)
-#     elif index == "3":
-#         CountryCapital.search_data(file)
-#     elif index == "4":
-#         CountryCapital.edit_data(file)
-#     elif index == "5":
-#         CountryCapital.load_from_file(file)
-#     elif index == "6":
-#         break
-#     else:
-#         print("Введен некорректный номер")
+file = 'list_capital.json'
+index = ''
+while True:
+    index = input("Выбор действия:\n1 - добавление данных\n2 - удаление данных\n3 - поиск данных\n4 - "
+                  "редактирование данных\n5 - просмотр данных\n6 - завершение работы\nВвод: ")
+    if index == "1":
+        CountryCapital.add_country(file)
+    elif index == "2":
+        CountryCapital.delete_country(file)
+    elif index == "3":
+        CountryCapital.search_data(file)
+    elif index == "4":
+        CountryCapital.edit_data(file)
+    elif index == "5":
+        CountryCapital.load_from_file(file)
+    elif index == "6":
+        break
+    else:
+        print("Введен некорректный номер")
 
 # import requests
 # import json
