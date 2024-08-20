@@ -115,7 +115,6 @@ while True:
     elif index == "3":
         CountryCapital.search_data(file)
         print(f"******************************\n")
-    elif index == "4":
         CountryCapital.edit_data(file)
         print(f"******************************\n")
     elif index == "5":
