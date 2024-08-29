@@ -1,7 +1,5 @@
 # print("Hello")
 # print("Привет!")
-import csv
-import json
 # first_name = "Nikolay"
 # print("Hello, " + first_name + "!")
 #
@@ -3903,8 +3901,6 @@ import json
 
 # Модуль OS и OS.PATH
 
-import os
-
 # import os.path
 
 # print(os.getcwd())  # путь к рабочей директории
@@ -6786,7 +6782,6 @@ import os
 # json.dump(filtered, f, indent=2)
 
 #
-import csv
 
 #
 # with open("data.csv") as f:
@@ -6885,6 +6880,7 @@ import csv
 # row = soup.find("div", id="whois3").find_next_sibling()
 # row = soup.find("div", id="whois3").find_previous_sibling()
 # print(row)
+#\\\\\\Практика 25.05.2024\\\\\\\\\Парсинг сайтов
 #
 # from bs4 import BeautifulSoup
 #
@@ -6907,7 +6903,7 @@ import csv
 #         copywriter.append(cw)
 #
 # print(copywriter)
-#
+
 # from bs4 import BeautifulSoup
 # import re
 #
@@ -6924,7 +6920,7 @@ import csv
 # salary = soup.find_all("div", {"data-set": "salary"})
 # for i in salary:
 #     get_salary(i.text)
-
+#
 # import requests
 #
 #
@@ -6958,7 +6954,6 @@ import csv
 #
 # if __name__ == '__main__':
 #     main()
-# import csv
 #
 # import requests
 # from bs4 import BeautifulSoup
@@ -7002,69 +6997,70 @@ import csv
 #
 # if __name__ == '__main__':
 #     main()
-# import csv
-#
-# import requests
-# from bs4 import BeautifulSoup
-#
-#
-# def main():
-#     for i in range(2, 3):
-#         url = f"https://ru.wordpress.org/plugins/browse/blocks/page/{i}/"
-#         get_data(get_html(url))
-#
-#
-# def get_html(url):
-#     r = requests.get(url)
-#     return r.text
-#
-#
-# def refine_cy(s):
-#     return s.split()[-1]
-#
-#
-# def write_csv(data):
-#     with open("plugins1.csv", "a") as f:
-#         writer = csv.writer(f, delimiter=";", lineterminator="\r")
-#         writer.writerow((data['name'], data['url'], data['active'], data['cy']))
-#
-#
-# def get_data(html):
-#     soup = BeautifulSoup(html, 'lxml')
-#     elements = soup.find_all("div", class_="plugin-card")
-#     for el in elements:
-#         try:
-#             name = el.find("h3", class_="entry-title").text
-#         except AttributeError:
-#             name = ""
-#
-#         try:
-#             url = el.find("h3", class_="entry-title").find('a')["href"]
-#         except AttributeError:
-#             url = ""
-#
-#         try:
-#             active = el.find("span", class_="active-installs").text.strip()
-#         except AttributeError:
-#             active = ""
-#
-#         try:
-#             c = el.find("span", class_="tested-with").text.strip()
-#             cy = refine_cy(c)
-#         except AttributeError:
-#             cy = ""
-#
-#         data = {
-#             'name': name,
-#             'url': url,
-#             'active': active,
-#             'cy': cy
-#         }
-#         write_csv(data)
-#
-#
-# if __name__ == '__main__':
-#     main()
+
+import csv
+
+import requests
+from bs4 import BeautifulSoup
+
+
+def main():
+    for i in range(2, 3):
+        url = f"https://ru.wordpress.org/plugins/browse/blocks/page/{i}/"
+        get_data(get_html(url))
+
+
+def get_html(url):
+    r = requests.get(url)
+    return r.text
+
+
+def refine_cy(s):
+    return s.split()[-1]
+
+
+def write_csv(data):
+    with open("plugins1.csv", "a") as f:
+        writer = csv.writer(f, delimiter=";", lineterminator="\r")
+        writer.writerow((data['name'], data['url'], data['active'], data['cy']))
+
+
+def get_data(html):
+    soup = BeautifulSoup(html, 'lxml')
+    elements = soup.find_all("div", class_="plugin-card")
+    for el in elements:
+        try:
+            name = el.find("h3", class_="entry-title").text
+        except AttributeError:
+            name = ""
+
+        try:
+            url = el.find("h3", class_="entry-title").find('a')["href"]
+        except AttributeError:
+            url = ""
+
+        try:
+            active = el.find("span", class_="active-installs").text.strip()
+        except AttributeError:
+            active = ""
+
+        try:
+            c = el.find("span", class_="tested-with").text.strip()
+            cy = refine_cy(c)
+        except AttributeError:
+            cy = ""
+
+        data = {
+            'name': name,
+            'url': url,
+            'active': active,
+            'cy': cy
+        }
+        write_csv(data)
+
+
+if __name__ == '__main__':
+    main()
 
 
 # from parsers import Parser
