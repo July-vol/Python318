@@ -1,6 +1,7 @@
 # print("Hello")
 # print("Привет!")
-
+import csv
+import json
 # first_name = "Nikolay"
 # print("Hello, " + first_name + "!")
 #
@@ -3904,7 +3905,6 @@
 
 import os
 
-
 # import os.path
 
 # print(os.getcwd())  # путь к рабочей директории
@@ -6620,129 +6620,129 @@ import os
 # for i in range(5):
 #     write_json(gen_person())
 
-import json
-
-data = {}
-
-
-class CountryCapital:
-    def __init__(self, country, capital):
-        self.country = country
-        self.capital = capital
-        data[self.country] = self.capital
-
-    def __str__(self):
-        return f"{self.country}: {self.capital}"
-
-    @staticmethod
-    def load_data(filename):
-        try:
-            date = json.load(open(filename))
-        except FileNotFoundError:
-            date = {}
-        finally:
-            return date
-
-    @staticmethod
-    def add_country(filename):
-        country_name = input("Введите название страны(заглавной буквы): ")
-        capital_name = input("Введите название столицы(с заглавной буквы): ")
-        # try:
-        #     date = json.load(open(filename))
-        # except FileNotFoundError:
-        #     date = {}
-        date = CountryCapital.load_data(filename)
-
-        date[country_name] = capital_name
-        with open(filename, "w") as f:
-            json.dump(date, f, indent=2)
-
-    @staticmethod
-    def load_from_file(filename):
-        with open(filename, "r") as f:
-            print(json.load(f))
-
-    @staticmethod
-    def delete_country(filename):
-        del_country = input("Введите название страны: ")
-
-        # try:
-        #     date = json.load(open(filename))
-        # except FileNotFoundError:
-        #     date = {}
-        date = CountryCapital.load_data(filename)
-
-        if del_country in date:
-            del date[del_country]
-
-            with open(filename, "w") as f:
-                json.dump(date, f, indent=2)
-        else:
-            print("Такой страны в базе нет")
-
-    @staticmethod
-    def search_data(filename):
-        country = input("Введите название страны: ")
-
-        # try:
-        #     date = json.load(open(filename))
-        # except FileNotFoundError:
-        #     date = {}
-        date = CountryCapital.load_data(filename)
-
-        if country in date:
-            print(f"Страна {country} столица {date[country]} есть в словаре")
-        else:
-            print(f"Страны {country} нет в словаре")
-
-    @staticmethod
-    def edit_data(filename):
-        country = input("Введите страну для корректировки: ")
-        new_capital = input("Введите новое название столицы: ")
-
-        # try:
-        #     date = json.load(open(filename))
-        # except FileNotFoundError:
-        #     date = {}
-        date = CountryCapital.load_data(filename)
-
-        if country in date:
-            date[country] = new_capital
-            with open(filename, "w") as f:
-                json.dump(date, f, indent=2)
-        else:
-            print("Такой страны в базе нет")
-
-
-file = 'list_capital.json'
-index = ''
-while True:
-    index = input("Выбор действия:\n1 - добавление данных\n2 - удаление данных\n3 - поиск данных\n4 - "
-                  "редактирование данных\n5 - просмотр данных\n6 - завершение работы\nВвод: ")
-    if index == "1":
-        CountryCapital.add_country(file)
-    elif index == "2":
-        CountryCapital.delete_country(file)
-    elif index == "3":
-        CountryCapital.search_data(file)
-    elif index == "4":
-        CountryCapital.edit_data(file)
-    elif index == "5":
-        CountryCapital.load_from_file(file)
-    elif index == "6":
-        break
-    else:
-        print("Введен некорректный номер")
-
-# import requests
 # import json
 #
+# data = {}
+#
+#
+# class CountryCapital:
+#     def __init__(self, country, capital):
+#         self.country = country
+#         self.capital = capital
+#         data[self.country] = self.capital
+#
+#     def __str__(self):
+#         return f"{self.country}: {self.capital}"
+#
+#     @staticmethod
+#     def load_data(filename):
+#         try:
+#             date = json.load(open(filename))
+#         except FileNotFoundError:
+#             date = {}
+#         finally:
+#             return date
+#
+#     @staticmethod
+#     def add_country(filename):
+#         country_name = input("Введите название страны(заглавной буквы): ")
+#         capital_name = input("Введите название столицы(с заглавной буквы): ")
+#         # try:
+#         #     date = json.load(open(filename))
+#         # except FileNotFoundError:
+#         #     date = {}
+#         date = CountryCapital.load_data(filename)
+#
+#         date[country_name] = capital_name
+#         with open(filename, "w") as f:
+#             json.dump(date, f, indent=2)
+#
+#     @staticmethod
+#     def load_from_file(filename):
+#         with open(filename, "r") as f:
+#             print(json.load(f))
+#
+#     @staticmethod
+#     def delete_country(filename):
+#         del_country = input("Введите название страны: ")
+#
+#         # try:
+#         #     date = json.load(open(filename))
+#         # except FileNotFoundError:
+#         #     date = {}
+#         date = CountryCapital.load_data(filename)
+#
+#         if del_country in date:
+#             del date[del_country]
+#
+#             with open(filename, "w") as f:
+#                 json.dump(date, f, indent=2)
+#         else:
+#             print("Такой страны в базе нет")
+#
+#     @staticmethod
+#     def search_data(filename):
+#         country = input("Введите название страны: ")
+#
+#         # try:
+#         #     date = json.load(open(filename))
+#         # except FileNotFoundError:
+#         #     date = {}
+#         date = CountryCapital.load_data(filename)
+#
+#         if country in date:
+#             print(f"Страна {country} столица {date[country]} есть в словаре")
+#         else:
+#             print(f"Страны {country} нет в словаре")
+#
+#     @staticmethod
+#     def edit_data(filename):
+#         country = input("Введите страну для корректировки: ")
+#         new_capital = input("Введите новое название столицы: ")
+#
+#         # try:
+#         #     date = json.load(open(filename))
+#         # except FileNotFoundError:
+#         #     date = {}
+#         date = CountryCapital.load_data(filename)
+#
+#         if country in date:
+#             date[country] = new_capital
+#             with open(filename, "w") as f:
+#                 json.dump(date, f, indent=2)
+#         else:
+#             print("Такой страны в базе нет")
+#
+#
+# file = 'list_capital.json'
+# index = ''
+# while True:
+#     index = input("Выбор действия:\n1 - добавление данных\n2 - удаление данных\n3 - поиск данных\n4 - "
+#                   "редактирование данных\n5 - просмотр данных\n6 - завершение работы\nВвод: ")
+#     if index == "1":
+#         CountryCapital.add_country(file)
+#     elif index == "2":
+#         CountryCapital.delete_country(file)
+#     elif index == "3":
+#         CountryCapital.search_data(file)
+#     elif index == "4":
+#         CountryCapital.edit_data(file)
+#     elif index == "5":
+#         CountryCapital.load_from_file(file)
+#     elif index == "6":
+#         break
+#     else:
+#         print("Введен некорректный номер")
+# #
+# import requests
+# import json
+
 # response = requests.get("https://jsonplaceholder.typicode.com/todos")
 # # print(response.text)
 # # print(type(response.text))
 # todos = json.loads(response.text)
-# # print(todos)
-# # print(type(todos[0]))
+# print(todos)
+# print(type(todos[0]))
 #
 # todos_by_user = {}  # {1: 3, 2: 1}
 #
@@ -6783,11 +6783,12 @@ while True:
 # with open("filtered_data.json", "w") as f:
 #     filtered = list(filter(keep, todos))
 #
-#     json.dump(filtered, f, indent=2)
+# json.dump(filtered, f, indent=2)
 
+#
+import csv
 
-# import csv
-
+#
 # with open("data.csv") as f:
 #     file_reader = csv.reader(f, delimiter=";")
 #     count = 0
@@ -6797,8 +6798,8 @@ while True:
 #         else:
 #             print(f"\t{row[0]} - {row[1]}. Год рождения {row[2]}")
 #         count += 1
-
-
+#
+#
 # with open("data.csv") as f:
 #     field_names = ['Имя', 'Профессия', 'Год рождения']
 #     file_reader = csv.DictReader(f, delimiter=";", fieldnames=field_names)
@@ -6808,15 +6809,15 @@ while True:
 #             print(f"Файл содержит столбцы: {', '.join(row)}")
 #         print(f"\t{row['Имя']} - {row['Профессия']}. Год рождения {row['Год рождения']}")
 #         count += 1
-
+#
 # with open("student.csv", "w") as f:
 #     writer = csv.writer(f, delimiter=";", lineterminator="\r")
 #     writer.writerow(["Имя", "Класс", "Возраста"])
 #     writer.writerow(["Женя", "9", "15"])
 #     writer.writerow(["Саша", 5, 12])
 #     writer.writerow(["Маша", 11, 18])
-
-
+#
+#
 # data = [['hostname', 'vendor', 'model', 'location'],
 #         ['sw1', 'Cisco', '3750', 'London, Best str'],
 #         ['sw2', 'Cisco', '3850', 'Liverpool, Better str'],
@@ -6828,8 +6829,8 @@ while True:
 #     # for row in data:
 #     #     writer.writerow(row)
 #     writer.writerows(data)
-
-
+#
+#
 # with open("student1.csv", "w") as f:
 #     names = ["Имя", "Возраст"]
 #     writer = csv.DictWriter(f, delimiter=";", lineterminator="\r", fieldnames=names)
@@ -6838,7 +6839,7 @@ while True:
 #     writer.writerow({"Имя": "Маша", "Возраст": 15})
 #     writer.writerow({"Имя": "Вова", "Возраст": 14})
 
-
+#
 # data = [{
 #     'hostname': 'sw1',
 #     'location': 'London',
@@ -6866,13 +6867,11 @@ while True:
 #     writer.writeheader()
 #     for d in data:
 #         writer.writerow(d)
-
-
-# fieldnames=['hostname', 'location', 'model', 'vendor']
-# print(list(data[0].keys()))  # ['hostname', 'location', 'model', 'vendor']
-
-# from bs4 import BeautifulSoup
 #
+# fieldnames = ['hostname', 'location', 'model', 'vendor']
+# print(list(data[0].keys()))  # ['hostname', 'location', 'model', 'vendor']
+#
+# from bs4 import BeautifulSoup
 #
 # f = open('index.html').read()
 # soup = BeautifulSoup(f, "html.parser")
@@ -6886,8 +6885,7 @@ while True:
 # row = soup.find("div", id="whois3").find_next_sibling()
 # row = soup.find("div", id="whois3").find_previous_sibling()
 # print(row)
-
-
+#
 # from bs4 import BeautifulSoup
 #
 #
@@ -6909,8 +6907,7 @@ while True:
 #         copywriter.append(cw)
 #
 # print(copywriter)
-
-
+#
 # from bs4 import BeautifulSoup
 # import re
 #
@@ -6927,7 +6924,6 @@ while True:
 # salary = soup.find_all("div", {"data-set": "salary"})
 # for i in salary:
 #     get_salary(i.text)
-
 
 # import requests
 #
