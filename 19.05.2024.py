@@ -112,12 +112,12 @@ with open('final_gbk.csv', 'w', encoding="gbk") as file_out:
     for head in data_head[:-1]:
         file_out.write(head)
         file_out.write(";")
-    file_out.write(data_head[-1] + "\n")  # Последний разрыв строки
+    file_out.write(data_head[-1] + "\n")
     for i in range(200):
         for head in data_head[:-1]:
             file_out.write(data_head_dict[head][i])
             file_out.write(";")
-        last_key = data_head[-1]  # Взять последнюю голову
+        last_key = data_head[-1]
         file_out.write(data_head_dict[last_key][i])
         file_out.write("\n")
 
