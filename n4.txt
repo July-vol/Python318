@@ -1,0 +1,90 @@
+Новость № 1
+
+Название: 
+			На Южном Урале убрали узкое место ...			
+Ссылка: https://apnegg.ru/news/na-yuzhnom-urale-ubrali-uzkoe-mesto-na-ozhivlennoj-trasse/
+Фото: <div class="singlenew__img">
+<img alt="" src="https://apnegg.ru/wp-content/uploads/2024/04/03-170424.jpg"/>
+</div>
+
+****************************************
+Новость № 2
+
+Название: 
+			В Кемерово на ж.-д. переезде фура ...			
+Ссылка: https://apnegg.ru/news/v-kemerovo-na-zh-d-pereezde-fura-stolknulas-s-teplovozom/
+Фото: <div class="singlenew__img">
+<img alt="" src="https://apnegg.ru/wp-content/uploads/2024/08/04-300824.jpg"/>
+</div>
+
+****************************************
+Новость № 3
+
+Название: 
+			В Саратовской области подорожало топливо			
+Ссылка: https://apnegg.ru/news/v-saratovskoj-oblasti-podorozhalo-toplivo/
+Фото: <div class="singlenew__img">
+<img alt="" src="https://apnegg.ru/wp-content/uploads/2024/05/03-080524.jpg"/>
+</div>
+
+****************************************
+Новость № 4
+
+Название: 
+			Ространснадзором в СКФО запущен дистанционный контроль ...			
+Ссылка: https://apnegg.ru/news/rostransnadzorom-v-skfo-zapushhen-distanczionnyj-kontrol-bolshegruzov/
+Фото: <div class="singlenew__img">
+<img alt="" src="https://apnegg.ru/wp-content/uploads/2024/07/01-050624.jpg"/>
+</div>
+
+****************************************
+Новость № 5
+
+Название: 
+			В Карелии подорожало топливо			
+Ссылка: https://apnegg.ru/news/v-karelii-podorozhalo-toplivo/
+Фото: <div class="singlenew__img">
+<img alt="" src="https://apnegg.ru/wp-content/uploads/2024/08/02-010824.jpg"/>
+</div>
+
+****************************************
+Новость № 6
+
+Название: 
+			Китайский производитель грузовиков Foton представляет новинку			
+Ссылка: https://apnegg.ru/news/kitajskij-proizvoditel-gruzovikov-foton-predstavlyaet-novinku/
+Фото: <div class="singlenew__img">
+<img alt="" src="https://apnegg.ru/wp-content/uploads/2024/08/05-290824.jpg"/>
+</div>
+
+****************************************
+Новость № 7
+
+Название: 
+			Неправильно припаркованные фуры исчезнут с улиц ...			
+Ссылка: https://apnegg.ru/news/nepravilno-priparkovannye-fury-ischeznut-s-ulicz-vologdy/
+Фото: <div class="singlenew__img">
+<img alt="" src="https://apnegg.ru/wp-content/uploads/2024/05/01-290524.jpg"/>
+</div>
+
+****************************************
+Новость № 8
+
+Название: 
+			Ремонт трассы М-12 в Пермском крае ...			
+Ссылка: https://apnegg.ru/news/remont-trassy-m-12-v-permskom-krae-zavershen-na-60/
+Фото: <div class="singlenew__img">
+<img alt="" src="https://apnegg.ru/wp-content/uploads/2024/03/04-010324.jpg"/>
+</div>
+
+****************************************
+Новость № 9
+
+Название: 
+			В Красноярском крае на трассе «Саяны» ...			
+Ссылка: https://apnegg.ru/news/v-krasnoyarskom-krae-na-trasse-sayany-nachat-remont-mosta-cherez-reku-dzheb/
+Фото: <div class="singlenew__img">
+<img alt="" src="https://apnegg.ru/wp-content/uploads/2024/07/02-270724.jpg"/>
+</div>
+
+****************************************
