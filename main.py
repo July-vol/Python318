@@ -14,6 +14,7 @@
 # b = "Hello"
 # print(a, type(a)) # int - целое число, float - вещественное число, записывается через точку 2.8
 # print(str(a) + b) # преобразования типов
+import sqlite3
 
 # a = b
 # print(a, id(a))#5
@@ -7073,8 +7074,13 @@
 #
 # if __name__ == '__main__':
 #     main()
-#
+
+
+# /////Базы данных СУБД 2.06.2024\\\\\\\\\\\\\\\\\\\\
+
+# # #
 # import sqlite3
+#
 #
 # con = sqlite3.connect("profile.db")
 # cur = con.cursor()
@@ -7087,14 +7093,46 @@
 # with sqlite3.connect("profile.db") as con:
 #     cur = con.cursor()
 #
-#     cur.execute("""CREATE TABLE IF NOT EXISTS users(
+#     cur.execute("""CREATE TABLE IF NOT EXISTS users(       #CREATE TABLE IF NOT EXISTSсоздать таблицу если она еще не существует
 #     id INTEGER PRIMARY KEY AUTOINCREMENT,
 #     name TEXT NOT NULL,
 #     summa REAL,
 #     date BLOB)""")
-#
-# cur.execute("DROP TABLE users")
 
+# cur.execute("DROP TABLE users") #удаление таблицы
+#SQL запросы
+#SQL- как структурированны язык запросов,у него есть свой синтаксис
+
+# Ключево слово SELECT  [ALL (знаяение по умолчанию, без разницы напишем или нет)| DISTINCT(только все уникальные значения ,] * | столбец [, столбец_N]
+#FROM таблица_1
+# SELECT *
+#FROM T1
+
+#Оператор- WHERE условие идет 3 после SELECT
+# FROM T1
+# WHERE:
+#
+# Операторы сравнения :=, ==, <>, !=, >=, <=
+# Оператор and , or
+# Выражение [NOT] BETWEEN начальное _Значение AND конечное
+# Выражение [NOT] LIKE  шаблон_строки:
+#         % - любое количество символов
+#         _ - любое одиночному символу
+# Выражение [NOT] GLOB Регулярное_выражение
+#         * - любое количество символов
+#         ? - соответствует одиному символу
+#         . - любое одиночный символ
+#         [символы, начальны-конечный символ] - один из перечисленых заданных символов[abc]
+#         [начальный символ -конечный символ] - один из диапазона [a-z0-9]
+#         [^......] - любой симвро кроме заданных  [^0-9]
+#         IS [NOT] NULL -позволяет выбрать все строки NULL(значение является пустым)
+#ORDER BY столбец_1 | номер столбца[ASC|DESC]  [,столбец_N]
+
+
+
+
+
+J
 # import sqlite3
 #
 # with sqlite3.connect("users.db") as con:
@@ -7107,7 +7145,6 @@
 # age INTEGER CHECK(age > 0 AND age < 100),
 # email TEXT UNIQUE
 # )""")
-
 # переименовать таблицу
 # cur.execute("""
 # ALTER TABLE person
