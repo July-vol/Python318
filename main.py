@@ -7127,17 +7127,15 @@ import sqlite3
 #         [^......] - любой симвро кроме заданных  [^0-9]
 #         IS [NOT] NULL -позволяет выбрать все строки NULL(значение является пустым)
 #ORDER BY столбец_1 | номер столбца[ASC|DESC]  [,столбец_N]
+# LIMIT количество строк OFFSET -смещение строк
+#LIMIT [смещение, ] количество строк
 
-
-
-
-
-J
+#
 # import sqlite3
 #
 # with sqlite3.connect("users.db") as con:
 #     cur = con.cursor()
-
+#
 # cur.execute("""CREATE TABLE IF NOT EXISTS person(
 # id INTEGER PRIMARY KEY AUTOINCREMENT,
 # name TEXT NOT NULL,
@@ -7156,24 +7154,54 @@ J
 # ALTER TABLE person_table
 # ADD COLUMN address NOT NULL DEFAULT "Москва"
 # """)
-
+#
 # удалить столбец
 # cur.execute("""
 # ALTER TABLE person_table
 # DROP COLUMN address
 # """)
 
-# переименование поля
+# # переименование поля
 # cur.execute("""
 # ALTER TABLE person_table
 # RENAME COLUMN address TO home_address
 # """)
-
+#
 # удаление таблицы
 # cur.execute("""
 # DROP TABLE person_table
 # """)
 
+
+# практика от 08.06.24
+# Есть три команды для редактирования данных в таблице:
+
+# 1. INSERT  - добавление данных в таблицу
+# INSERT INTO имя_таблицы [(столбец_1, столбец_N)]
+# VALUES(столбец_1, столбец_N)
+ #Например:
+# INSERT INTO T1
+# VALUES(16, "Юшина", "Секретарь", 2, 1500)
+
+# (если нужно поменять порядок столбцов, то в первой строке в () указать порядок)
+# INSERT INTO T1 (ID, Doljnost, Orab,ZP, FName)
+# VALUES(17, "Охранники", 1, 2500, "Юшина")
+# (если нужно если нужно указывать не все поля  в () указать порядок)
+# INSERT INTO T1 (ID, FName)
+# VALUES(29, "Николаев")
+# INSERT INTO имя_таблицы [(столбец_1, столбец_N)]
+# SELECT(столбец_1, столбец_N)
+# FROM имя_таблицы (из которой берем данные)
+# WHERE
+
+# 2. UPDATE - редактирование данных в таблице
+# SET столбец_1 = значение_1,столбец_N = значение_N
+# WHERE условие
+
+# 3. DELETE удаление данных из таблицы
+# ибо по условию либо все данные
+# DELETE FROM имя_таблицы
+# WHERE (условие)
 
 # import sqlite3
 #
@@ -7198,7 +7226,8 @@ J
 #     res3 = cur.fetchall()
 #     print(res3)
 
-
+#\\\\\\ПРАКТИКА 09.0.62024....\\\\\\\\\
+#
 # import sqlite3
 #
 # cars_list = [
@@ -7223,21 +7252,21 @@ J
 #     DELETE FROM cars WHERE model LIKE 'B%';
 #     UPDATE cars SET price = price + 100;
 #     """)
-
+#
 # cur.executemany("INSERT INTO cars VALUES(NULL, ?, ?)", cars_list)
-
+#
 # for car in cars_list:
 #     cur.execute("INSERT INTO cars VALUES(NULL, ?, ?)", car)
-
+#
 # cur.execute("INSERT INTO cars VALUES(1, 'Renault', 22000)")
 # cur.execute("INSERT INTO cars VALUES(2, 'Volvo', 29000)")
 # cur.execute("INSERT INTO cars VALUES(3, 'Mercedes', 57000)")
 # cur.execute("INSERT INTO cars VALUES(4, 'Bentley', 35000)")
 # cur.execute("INSERT INTO cars VALUES(5, 'Audi', 52000)")
-
+#
 # con.commit()
 # con.close()
-
+#
 
 # import sqlite3
 #
@@ -7263,7 +7292,7 @@ J
 # finally:
 #     if con:
 #         con.close()
-
+#
 
 # import sqlite3
 #
@@ -7300,8 +7329,8 @@ J
 #     for res in cur:
 #         # print(res[0], "->", res[1])
 #         print(res["model"], "->", res["price"])
-
-
+#
+#
 # import sqlite3
 #
 #
@@ -7342,24 +7371,24 @@ J
 #     img = cur.fetchone()['ava']
 #
 #     write_ava("out.png", img)
-
+#
 # import sqlite3
-
+#
 # with sqlite3.connect("car.db") as con:
 #     cur = con.cursor()
 #
 #     with open("sql_dump.sql", "w") as f:
 #         for sql in con.iterdump():
 #             f.write(sql)
-
-
+#
+#
 # with sqlite3.connect("car_project.db") as con:
 #     cur = con.cursor()
 #
 #     with open("sql_dump.sql", "r") as f:
 #         sql = f.read()
 #         cur.executescript(sql)
-
+#
 # ORM (Object-Relational Mapping) - реляционное сопоставление объектов
 # SQLAlchemy ORM
 

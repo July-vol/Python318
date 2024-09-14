@@ -1,19 +1,33 @@
 1. Вывести фамилии заказчиков в алфавитном порядке.
 SELECT NAME
 FROM ZAKAZ
-ORDER BY NAME
+ORDER BY NAME ASC
+SELECT NAME
+FROM ZAKAZ
+ORDER BY NAME DESC
 2. Вывести список кодов продавцов в обратном порядке.
-
-
+SELECT KOD
+FROM ZAKAZ
+ORDER BY KOD DESC
 3. Вывести все фамилии и товар заказчиков в обратном порядке (сортировка по фамилии), если фамилия входит в диапазон [С-Л].
-
+SELECT NAME,Prod
+FROM ZAKAZ
+WHERE NAME GLOB '[Л-С]*'
+ORDER BY NAME DESC
 
 4. Вывести фамилии заказчиков в интервале от Па до Ле, которые не продают никакие модели  шкафов.
 
+Select NAME, Prod
+FROM ZAKAZ
+WHERE NAME BETWEEN "Ле" AND "Па" AND Prod NOT LIKE "%шкафы%" 
 
 5. Выведите фамилии продавцов, сумма заказа которых превышает 4000 и код продавцов 1003, 1010 или 1016 (три способа).
-
-
+SELECT NAME, KOD, SUM
+FROM ZAKAZ 
+/*WHERE SUM > 4000 AND (KOD = 1003 OR KOD = 1010 OR KOD = 1016);*/
+/*WHERE SUM > 4000 AND (KOD LIKE 1003 OR KOD LIKE 1010 OR KOD LIKE 1016)*/
+/*WHERE SUM > 4000 AND (KOD IS 101003 OR KOD IS 1010 OR KOD IS 1016);*/
+WHERE SUM > 4000 AND KOD NOT IN(1003, 1010, 1016);
 6. Вывести коды заказчиков, которые работают в областных центрах (Иркутск,  Ижевск, Москва).
 
 

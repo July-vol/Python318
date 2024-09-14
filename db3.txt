@@ -1,0 +1,29 @@
+1. Вставить из Т2 в Т1 ID, фамилия и должность, Or если ID<23 и ID>18
+INSERT INTO T1 (ID,  FName, Doljnost, Orab)
+SELECT ID,  FName, D, Orabot
+FROM T2
+WHERE ID > 18 AND ID < 23;
+2. Вставить оставшиеся записи (ID>22), уменьшив зарплату на 10%, а опыт работы в 2 раза.
+INSERT INTO T1 (ID,  FName, Doljnost, Orab, ZP)
+SELECT ID, FName, D, Orabot / 2, Zp * 0.9
+FROM T2
+WHERE ID > 22;
+3. Создать копию полученной таблицы с менеджерами и директорами (все данные)
+INSERT INTO T3
+SELECT *
+FROM T1
+WHERE Doljnost IN ('Менеджер','Директор');
+4. Создать копию таблицы, в которой будет зарплата <1000 и увеличить зарплату на 100 единиц.
+INSERT INTO T4
+SELECT ID,  FName, Doljnost, Orab, ZP +100
+FROM T1
+WHERE ZP < 1000;
+5. В таблице Т1, если зарплата не определена  и опыт работы более 0, присвоить 900.
+UPDATE T1
+SET ZP = 900
+WHERE ZP IS NULL AND Orab > 0;
+6. Удалить записи с неопределенной зарплатой из Т1.
+DELETE FROM T1
+WHERE ZP IS NULL
+7. Удалить все записи из таблици Т2.
+DELETE FROM T2
