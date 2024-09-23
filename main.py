@@ -7229,7 +7229,21 @@ import sqlite3
 #\\\\\\ПРАКТИКА 09.06.2024....\\\\\\\\\
 # Логическая база данных
 # Физическая база данных
-
+# cur.execute("INSERT INTO toys VALUES(1, 'Самолет', 10, 1500)")
+# cur.execute("INSERT INTO toys VALUES(2, 'Мяч', 25, 500)")
+# cur.execute("INSERT INTO toys VALUES(3, 'Кукла', 15, 1000)")
+# cur.execute("INSERT INTO toys VALUES(4, 'Пистолет', 20, 3500)")
+# cur.execute("INSERT INTO toys VALUES(5, 'Чебурашка', 35, 700)")
+# cur.execute("INSERT INTO toys VALUES(6, 'Грузовик', 27, 5400)")
+# cur.execute("INSERT INTO toys VALUES(7, 'Танк', 50, 2700)")
+# cur.execute("INSERT INTO toys VALUES(8, 'Чайный сервиз', 18, 2000)")
+# cur.execute("INSERT INTO toys VALUES(9, 'Колобок', 65, 900)")
+# cur.execute("INSERT INTO toys VALUES(10, 'Бабочка, 48, 500)")
+# ('Dog', 5400),
+# ('Pig', 2700),
+# ('Caps', 2000),
+# ('Flower', 900),
+# ('Bird', 500)
 #
 # import sqlite3
 #
@@ -7270,7 +7284,7 @@ import sqlite3
 # con.commit()
 # con.close()
 #
-
+#
 # import sqlite3
 #
 # con = None
@@ -7295,7 +7309,19 @@ import sqlite3
 # finally:
 #     if con:
 #         con.close()
+# #
+# import sqlite3
 #
+# with sqlite3.connect("toy.db") as con:
+#     cur = con.cursor()
+#     cur.execute("""
+#     CREATE TABLE IF NOT EXISTS toys(
+#         toys_id INTEGER PRIMARY KEY AUTOINCREMENT,
+#         Nametoy TEXT,
+#         Count TEXT
+#         price INTEGER
+#     )
+#     """)
 
 # import sqlite3
 #
