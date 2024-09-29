@@ -7538,7 +7538,7 @@ import sqlite3
 
 # Шаблонизатор (Jinja)
 
-# from jinja2 import Template
+from jinja2 import Template
 
 # name = "Игорь"
 # age = 25
@@ -7565,8 +7565,8 @@ import sqlite3
 # msg = tm.render(p=per)
 #
 # print(msg)
-
-
+#
+#
 # cities = [
 #     {'id': 1, 'city': 'Москва'},
 #     {'id': 2, 'city': 'Сочи'},
@@ -7581,7 +7581,7 @@ import sqlite3
 #             <option value="{{ c['id'] }}">{{ c['city'] }}</option>
 #         {% elif c.city == "Москва" %}
 #             <option>{{ c['city'] }}</option>
-#         {% else -%}
+#
 #             {{ c['city'] }}
 #         {% endif -%}
 #     {% endfor -%}
@@ -7592,6 +7592,27 @@ import sqlite3
 #
 # print(msg)
 
+#
+# link = """"<ul>
+#     {% for p in pages -%}
+#         {%if p.'title' == "Главная"-%}
+#             <li><a href="{{ p['url_name']}}"class="active">{{ p['title']}}</a></li>
+#         {% else -%}
+#             <li><a href="{{ p['url_name']}}">{{ p['title']}}</a></li>
+#         {% endif -%}
+#     {% endfor -%}
+# </ul>"""
+# {% if p.'title' = 'Главная' -%}
+# {% else -%}
+#     {{ p ['url_name']}}"class="active">{{ p ['title']}}
+# {% endif -%}
+#
+# menus = [
+#     {'id': 1, 'menus': '/index Главная'},
+#     {'id': 2, 'menus': '/news Новости'},
+#     {'id': 1, 'menus': '/about О компании'},
+#     {'id': 1, 'menus': '/shop Магазин'},
+#     {'id': 1, 'menus': '/contacts Контакты'},
 # cars = [
 #     {'model': 'Audi', 'price': 23000},
 #     {'model': 'Skoda', 'price': 17300},
