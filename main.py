@@ -14,7 +14,7 @@
 # b = "Hello"
 # print(a, type(a)) # int - целое число, float - вещественное число, записывается через точку 2.8
 # print(str(a) + b) # преобразования типов
-import sqlite3
+# import sqlite3
 
 # a = b
 # print(a, id(a))#5
@@ -7613,6 +7613,7 @@ from jinja2 import Template
 #     {'id': 1, 'menus': '/about О компании'},
 #     {'id': 1, 'menus': '/shop Магазин'},
 #     {'id': 1, 'menus': '/contacts Контакты'},
+
 # cars = [
 #     {'model': 'Audi', 'price': 23000},
 #     {'model': 'Skoda', 'price': 17300},
@@ -7635,22 +7636,27 @@ from jinja2 import Template
 
 # Макроопределение
 
-# html = """
-# {% macro input_func(name, value, type="text", size=40) %}
-#     <input type="{{ type }}" name="{{ name }}" value="{{ value }}" size="{{ size }}">
-# {% endmacro %}
-#
-# <p>{{ input_func('name', 'Введите имя') }}</p>
-# <p>{{ input_func('psw', 'Пароль',  'password') }}</p>
-# <p>{{ input_func('email', 'Электронная почта', 'email') }}</p>
-# """
-#
-# tm = Template(html)
-# msg = tm.render()
-#
-# print(msg)
+html = """
+{% macro input_func(name, value, type="text", size=40) %}
+    <input type="{{ type }}" name="{{ name }}" value="{{ value }}" size="{{ size }}">
+{% endmacro %}
+
+<p>{{ input_func('name', 'Введите имя') }}</p>
+<p>{{ input_func('name', 'Введите имя') }}</p>
+<p>{{ input_func('psw', 'Пароль',  'password') }}</p>
+<p>{{ input_func('email', 'Электронная почта', 'email') }}</p>
+"""
+
+tm = Template(html)
+msg = tm.render()
+
+print(msg)
 
 
+
+
+#
+#
 # from jinja2 import Environment, FileSystemLoader
 #
 # persons = [
