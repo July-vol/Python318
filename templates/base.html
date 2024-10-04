@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+
+{% block content %}
+    {% block table_contents %}
+        Содержимое вложенного блока
+    {% endblock table_contents %}
+Блок контента
+{% endblock content %}
+
+</body>
+</html>

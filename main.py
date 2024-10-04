@@ -7613,7 +7613,32 @@ from jinja2 import Template
 #     {'id': 1, 'menus': '/about О компании'},
 #     {'id': 1, 'menus': '/shop Магазин'},
 #     {'id': 1, 'menus': '/contacts Контакты'},
-
+# {%if p.'title' == "Главная"-%}
+# {% else -%}
+# <li><a href="{{ p['url_name']}}"class="active">{{ p['title']}}</a></li>
+# {% endif -%}
+#
+# pages = [
+#     {'title': "Главная", 'url_name': '/index'},
+#     {'title': "Новости", 'url_name': '/news'},
+#     {'title': "О компании", 'url_name': '/about'},
+#     {'title': "Магазин", 'url_name': '/shop'},
+#     {'title': "Контакты", 'url_name': '/contacts'},
+# ]
+#
+# link = """"<ul>
+# {% for p in pages -%}
+# {%if p.'title' = "Главная"-%}
+# <li><a href="{{ p['url_name']}}">{{ p['title']}}</a></li>
+#  {% else -%}
+# # <li><a href="{{ p['url_name']}}"class="active">{{ p['title']}}</a></li>
+# {% endfor -%}
+# </ul>
+# """
+#
+# tm = Template(link)
+# msg = tm.render(pages=pages)
+# print(msg)
 # cars = [
 #     {'model': 'Audi', 'price': 23000},
 #     {'model': 'Skoda', 'price': 17300},
@@ -7635,44 +7660,44 @@ from jinja2 import Template
 # print(cars)
 
 # Макроопределение
-
-html = """
-{% macro input_func(name, value, type="text", size=40) %}
-    <input type="{{ type }}" name="{{ name }}" value="{{ value }}" size="{{ size }}">
-{% endmacro %}
-
-<p>{{ input_func('name', 'Введите имя') }}</p>
-<p>{{ input_func('name', 'Введите имя') }}</p>
-<p>{{ input_func('psw', 'Пароль',  'password') }}</p>
-<p>{{ input_func('email', 'Электронная почта', 'email') }}</p>
-"""
-
-tm = Template(html)
-msg = tm.render()
-
-print(msg)
-
-
-
-
 #
+# html = """
+# {% macro input_func(name, value, type="text", size=40) %}
+#     <input type="{{ type }}" name="{{ name }}" value="{{ value }}" size="{{ size }}">
+# {% endmacro %}
 #
-# from jinja2 import Environment, FileSystemLoader
+# <p>{{ input_func('name', 'Введите имя') }}</p>
+# <p>{{ input_func('name', 'Введите имя') }}</p>
+# <p>{{ input_func('psw', 'Пароль',  'password') }}</p>
+# <p>{{ input_func('email', 'Электронная почта', 'email') }}</p>
+# """
 #
-# persons = [
-#     {"name": "Алексей", "year": 18, "weight": 78.5},
-#     {"name": "Никита", "year": 28, "weight": 82.3},
-#     {"name": "Виталий", "year": 33, "weight": 94.0}
-# ]
-#
-#
-# file_loader = FileSystemLoader('templates')
-# env = Environment(loader=file_loader)
-#
-# tm = env.get_template('about.html')
-# msg = tm.render(users=persons, title="About Jinja")
+# tm = Template(html)
+# msg = tm.render()
 #
 # print(msg)
+
+
+
+
+#
+#
+from jinja2 import Environment, FileSystemLoader
+
+persons = [
+    {"name": "Алексей", "year": 18, "weight": 78.5},
+    {"name": "Никита", "year": 28, "weight": 82.3},
+    {"name": "Виталий", "year": 33, "weight": 94.0}
+]
+
+
+file_loader = FileSystemLoader('templates')
+env = Environment(loader=file_loader)
+
+tm = env.get_template('about.html')
+msg = tm.render(users=persons, title="About Jinja")
+
+print(msg)
 
 # import time
 # import math
