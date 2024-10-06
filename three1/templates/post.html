@@ -2,5 +2,7 @@
 
 {% block content %}
 {{ super() }}
-Содержимое страницы "О сайте"
+
+{{ post | safe }}
+
 {% endblock %}

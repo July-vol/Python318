@@ -9,7 +9,7 @@ SECRET_KEY = '4b0a253785d17cde801bc851d9fa0a9a8b076017'
 app = Flask(__name__)
 app.config.from_object(__name__)
 
-app.config.update(dict(DATABASE=os.path.join(app.root_path, 'flsk.db')))
+app.config.update(dict(DATABASE=os.path.join(app.root_path, 'flsk1.db')))
 
 
 def connect_db():
@@ -48,13 +48,13 @@ def add_post():
         if len(request.form["name"]) > 4 and len(request.form["post"]) > 10:
             res = dbase.add_post(request.form["name"], request.form["post"])
             if not res:
-                flash("Ошибка добавления статьи", category='error')
+                flash("Ошибка добавления авто", category='error')
             else:
-                flash("Статья добавлена успешно", category='success')
+                flash("Авто добавлено успешно", category='success')
         else:
-            flash("Ошибка добавления статьи", category='error')
+            flash("Ошибка добавления авто", category='error')
 
-    return render_template('add_post.html', menu=dbase.get_menu(), title="Добавление статьи")
+    return render_template('add_post.html', menu=dbase.get_menu(), title="Добавление авто")
 
 
 @app.route("/post/<int:id_post>")

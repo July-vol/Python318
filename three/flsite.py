@@ -6,7 +6,7 @@ app.config['SECRET_KEY'] = 'gfgh465465jnfgjfgj74rtre8749e87erte'
 menu = [
     {'name': 'Главная', 'url': 'index'},
     {'name': 'О нас', 'url': 'about'},
-    {'name': 'Наши услуги', 'url': 'amenities'},
+    {'name': 'Добавить авто', 'url': 'addavto'},
     {'name': 'Обратная связь', 'url': 'contact'},
 ]
 
@@ -22,9 +22,9 @@ def about():
     return render_template('about.html', title="О нас", menu=menu)
 
 
-@app.route('/amenities')
-def amenities():
-    return render_template('amenities.html', title="Наши услуги", menu=menu)
+@app.route('/addavto')
+def addavto():
+    return render_template('addavto.html', title="Добавить авто", menu=menu)
 
 
 @app.route("/profile/<username>")
