@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Постановщик задач
+{% endblock %}
+
+{% block content %}
+<div class="content">
+    <h1 class="center">{{ self.title() }}</h1>
+
+    {% if tasks|length < 1 %}
+    <h4 class="center">Задач нет. Создайте задачу ниже!</h4>
+    {% else %}
+    <div class="block">
+        <div class="head">Задачи</div>
+        <div class="head">Время</div>
+        <div class="head">Удаление</div>
+        <div class="head">Обновление</div>
+        {% for task in tasks %}
+        <div class="text">{{ task.content }}</div>
+        <div>{{ task.date_created.date() }}</div>
+        <div><a href="/delete/{{task.id}}">Удалить</a></div>
+        <div><a href="/update/{{task.id}}">Обновить</a></div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="form">
+        <form action="/" method="post">
+            <input type="text" name="content" id="content">
+            <input type="submit" value="Добавить задачу">
+        </form>
+    </div>
+</div>
+{% endblock %}
