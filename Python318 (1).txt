@@ -1,0 +1,581 @@
+index.html
+! -> Tab
+lorem -> Tab
+align= left | center | right | justify
+
+<!-- комментарий -->
+Ctrl + /
+
+H20
+
+open in browser
+file:///D:/Python318/HTML/inform.html
+
+https://validator.w3.org/
+
+Ctrl + H
+align="
+style="text-align:
+
+style.html
+
+
+AnyDesk
+rgb(255, 0, 0)  => 0 - 255
+rgba(255, 0, 0, 1)  => 0 - 255 alpha - от 0 до 1
+#FF0000  -> 0-9A-F
+#F00
+
+list.html
+style.css
+
+
+selector.html
+
+Растровые изображения:
+*.jpg (jpeg)
+*.png 
+*.gif
+Векторные изображения:
+*.svg
+
+img.css
+file:///D:/Python318/HTML/%D0%93%D0%B8%D0%BF%D0%B5%D1%80%D1%81%D1%81%D1%8B%D0%BB%D0%BA%D0%B8/test2.html
+
+
+
+file:///D:/Python318/HTML/form/form.html?first-name=Olga&psw=123456&pol=on#file.php
+file:///D:/Python318/HTML/form/form.html#file.php
+
+file:///D:/Python318/HTML/form/form.html?first-name=Igor&psw=edsdfsd#file.php
+file:///D:/Python318/HTML/form/form.html?first-name=Olga&psw=fdgdfg&x=51&y=56#file.php
+
+
+file:///D:/Python318/JavaScript/test.php?name1=Igor
+file:///D:/Python318/JavaScript/index.html?name1=Hello#test.php
+file:///D:/Python318/JavaScript/index.html#test.php
+
+
+
+win + R => cmd
+
+python
+py
+
+print("Hello, World")
+
+IDLE
+
+
+import keyword
+keyword.kwlist
+
+
+1) от 0 по 9
+2)
+ворона - 1 21 31 41 51 61 
+вороны - 2, 3, 4
+ворон - 5, 6, 7, 8, 9, 0
+11
+
+git --version
+git --help
+
+git init
+- создаем репозиторий (применяется один раз для одного репозитория)
+
+git status
+- проверка в каком состоянии находится репозиторий
+
+git add -A
+		-A или --all - все файлы, которые находятся в папке и подпапках
+		main.py - только указанный документ
+		. - добавляет все файлы из текущей директории
+
+
+git config --global user.name 'name'
+		   --local
+
+git config --global user.name
+
+git config --global user.email 'test@mail.ru'
+git config --global user.email
+
+git commit -m "first commit"
+- контрольная точка 
+
+.gitignore
+
+git branch
+- просмотр веток
+
+git branch test
+git branch readme
+- создание ветки
+
+git branch -D test
+git branch -D readme
+- удаление ветки
+
+git checkout readme
+git checkout master
+- перейти на ветку
+
+master ->  readme
+			- readme.md
+
+
+git merge readme
+- слияние веток
+
+git log
+- история коммитов
+
+
+токен
+
+win + R => control
+
+Диспечер учетных данных -> Учетные данные Windows
+
+https://github.com
+Helen-prog
+токен
+
+git remote add origin https://github.com/Helen-prog/Python318.git
+git push -u origin master
+
+69d0de74f017f0d8dff8126e663d64590505ded5
+
+0) git status
+1) git add .
+2) git commit -m "название коммита"
+3) git push
+	- переносит данные с локального репозитория на удаленный репозиторий
+	
+
+
+Класс 
+class НазваниеКласса:
+	свойства (поля, переменные)
+		- статическое
+		- динамические (свойства класса)
+	методы (функции)
+		- статические (@staticmethod -> def method())
+		- экземпляра класса (def method(self))
+		- классов (@classmethod -> def method(cls))
+	атрибуты = свойства + методы
+	
+Модификаторы доступа:
+public - self.name
+protected - self._name
+private - self.__name
+
+родительский (бызовый, основной, суперкласс)
+	дочерний (наследник, подкласс)
+
+DRY (Don`t Repeate Yourself) - не повторяйся!
+
+#пакет
+geometry  (pip) (math)
+	# модули
+	rect.py
+	sq.py
+	trian.py
+	
+import sys
+sys.path
+
+car
+	__init__.py
+	carclass.py
+	electrocar.py
+	
+dump() - сохраняет данные в открытый файл
+dumps() - сохраняет данные в строку
+
+load() - считывает данне из открытого файла
+loads() - считывает данные из строки
+
+
+pip install requests
+
+csv (Comma Separated Values - переменные разделенные запятыми)
+
+data.csv
+
+Имя,Профессия,Год рождения
+Виктор,Веб-дизайнер,1995
+Игорь,Программист,1983
+
+reader => []
+DictReader => {}
+
+write => []
+DictWrite => {}
+
+
+Парсинг сайтов
+
+pip install beautifulsoup4 или bs4
+
+pip install lxml
+
+
+https://ru.wordpress.org/plugins/browse/blocks/page/1/
+https://ru.wordpress.org/plugins/browse/blocks/page/2/
+https://ru.wordpress.org/plugins/browse/blocks/page/3/
+
+https://ru.wordpress.org/plugins/browse/blocks/page/24/
+
+
+parsers.py
+
+
+MVC
+
+articles
+	project_articles.py
+	model.py
+	controller.py
+	view.py
+
+{
+	'название': 'qqq', 
+	'автора': 'www', 
+	'количество страниц': 'eee', 
+	'описание': 'rrr'
+}
+	
+articles = {
+	"qqq": {
+		'title': 'qqq', 
+		'author': 'www', 
+		'page': 'eee', 
+		'description': 'rrr'
+	},
+	"aaa"{
+		'title': 'aaa', 
+		'author': 'www', 
+		'page': 'eee', 
+		'description': 'rrr'
+	}
+}	
+
+Введение в теорию баз данных
+
+*.db, *.sqlite, *.db3, *.sqlite3
+
+SQL (структурированный язык запросов)
+
+SELECT [ALL | DISTINCT] * | столбец [, столбец_N]
+FROM таблица_1 [, таблица_N]
+WHERE условие
+	=, ==, <>, !=, >, >=, <, <=
+	AND, OR
+	выражение [NOT] BETWEEN начальное_значение AND конечное_значение
+	выражение [NOT] LIKE шаблон_строки:
+		% - любое кол-во символов
+		_ - любой одиночный символ
+	выражение [NOT] GLOB регулярное_выражение:
+		* - любое количество символов
+		? - соответствует одному символу
+		. - любой одиночный символ
+		[символы] - один из заданных символов [abc]
+		[начальный_символ-конечный_символ] - один из диапазона [a-z0-9]
+		[^...] - любой символ, кроме заданных [^abc] [^0-9]
+	выражение IS [NOT] NULL 
+	выражение [NOT] IN(набор_значений | выражение)
+	EXISTS (существует)
+GROUP BY (группировать по) имя_столбца
+HAVING (условие)
+ORDER BY столбец_1 | номер_столбца [ASC | DESC] [, столбец_N]	
+LIMIT кол-во_строк OFFSET смещение
+	LIMIT [смещение,] кол-во_строк
+
+		
+
+INSERT
+UPDATE
+DELETE
+
+
+INSERT INTO имя_таблицы [(столбец_1, столбец_N)]
+VALUES (столбец_1, столбец_N)
+
+
+INSERT INTO имя_таблицы [(столбец_1, столбец_N)]
+SELECT [(столбец_1, столбец_N)]
+FROM имя_таблицы(из которой берем данные)
+WHERE условие
+
+
+UPDATE имя_таблицы
+SET столбец_1=значение_1, столбец_N=значение_N
+WHERE условие
+
+DELETE FROM имя_таблицы
+WHERE условие
+
+Логическая база данных
+Физическая база данных
+
+Декартовое произведение - все возможные комбинации одной строки одной таблицы с каждой строкой другой таблицы
+
+Функции агрегирования
+SUM  только с числами
+AVG  только с числами
+COUNT
+MIN
+MAX
+
+Подзапросы (внутренний или вложенный запрос)
+
+Однострочный подзапрос
+	=, <>, >=, <=, >, <
+Многострочный подзапрос
+	IN, NOT IN
+	
+
+UNION
+UNION ALL
+
+SELECT столбецы
+FROM таблица_1 [INNER] JOIN таблица_2
+ON условие
+
+SELECT столбецы
+FROM таблица_1 LEFT JOIN таблица_2
+ON условие
+
+SELECT столбецы
+FROM таблица_1 RIGHT JOIN таблица_2
+ON условие
+
+pip install sqlalchemy
+
+пакет models
+	__init__.py
+	database.py
+	student.py
+	group.py
+	lesson.py
+create_database.py
+
+pip install faker
+
+{{ переменные }}
+
+{% for i in collections %}
+
+{% endfor %}
+
+
+{% if условие %}
+
+{% elif условие %}
+
+{% else %}
+
+{% endif %}
+
+
+
+cars = [
+ {'model': 'Audi', 'price': 23000},
+ {'model': 'Skoda', 'price': 17300},
+ {'model': 'Renault', 'price': 44300},
+ {'model': 'Wolksvagen', 'price': 21300}
+]
+
+persons = [
+ {"name": "Алексей", "year": 18, "weight": 78.5},
+ {"name": "Никита", "year": 28, "weight": 82.3},
+ {"name": "Виталий", "year": 33, "weight": 94.0}
+]
+
+templates
+	index.html
+	
+	header.html
+	footer.html
+	main.html
+	
+	dialog.html
+	
+	base.html
+	about.html
+	
+
+Flask
+Django
+
+
+pip install flask
+
+one
+	flsite.py
+	templates
+		base.html
+		index.html
+		about.html
+	
+http://127.0.0.1:5000/profile/admin	
+
+int - должны присутствовать только цифры
+float - только вещественные числа
+path - любые допустимые символы URL + "/"
+
+
+http://127.0.0.1:5000/contact?username=irina&email=irina%40gmail.com&message=Message
+
+flash()
+get_flashed_message()
+
+
+import os
+os.urandom(20).hex()
+
+from two.dbsite import create_db
+create_db()
+
+http://127.0.0.1:5000/post/1
+
+three
+
+pip install flask-sqlalchemy
+
+update.html
+	
+pip install django
+
+cd first
+
+django-admin startproject password_generator_project
+- новый проект
+
+python manage.py runserver
+- запуск сервера
+
+python manage.py startapp generator
+- создание нового приложения
+
+http://127.0.0.1:8000/?length=2
+http://127.0.0.1:8000/?length=3
+
+second
+django-admin startproject personal_portfolio
+python manage.py startapp skills
+python manage.py startapp blog
+
+
+python manage.py makemigrations
+- создаем файл с миграциями
+python manage.py migrate
+- применяем миграции
+
+python manage.py createsuperuser
+- создать суперпользователя
+
+<div style="text-align: center">
+	<input />
+</div>
+
+http://127.0.0.1:8000/blog/
+
+
+third
+django-admin startproject todos
+python manage.py startapp todo
+python manage.py migrate
+python manage.py createsuperuser
+
+SyhVOiWRLVBpzo4PW61CM3bFNVsbL4PogKbxcAivNCQE6YvJu4ABTh66TGU0OPkn
+ZjkK1d68xWFAsbrbnNbF7zjeZxIiX0GenvempvsMzDUPZLS5VLKEeNeF5ia70Lbd
+
+on_delete
+models.CASCADE - если пользователь будет удален, то удалятся все его задачи
+models.PROTECT - запрещает удалять пользователя, пока у него есть задачи
+models.SET_NULL - задачи останутся в базе даже при удалении пользователя, но значение в поле задачи изменится на NULL
+models.SET_DEFAULT - задачи останутся в базе даже при удалении пользователя, но значение в поле задачи изменится на значение по умолчанию
+
+fourth
+cd fourth
+django-admin startproject devsearch
+python manage.py startapp projects
+python manage.py startapp users
+
+
+OneToOneField - связь один к одному
+ForeignKey - связь один ко многим
+ManyToManyField - связь многие ко многим
+
+python manage.py shell
+from projects.models import Project
+Project.objects.all()
+Project.objects.get(id=1)
+Project.objects.filter(id=1)
+Project.objects.filter(title__contains="site")
+Project.objects.exclude(title__contains="site")
+
+quit()
+
+http://127.0.0.1:8000/project/1
+
+
+signals.py
+
+utils.py
+
+pagination.html
+
+
+
+http://127.0.0.1:8000/projects/?page=1
+http://127.0.0.1:8000/projects/?page=3
+
+
+
+http://127.0.0.1:8000/projects/?search_query=web
+
+http://127.0.0.1:8000/projects/?page=2
+
+http://127.0.0.1:8000/projects/?search_query=web&page=2
+
+http://127.0.0.1:8000/projects/?search_query=web&page=2
+http://127.0.0.1:8000/projects/?search_query=web&page=3
+
+
+fifth
+cd fifth
+django-admin startproject programming_blog
+python manage.py startapp blog
+
+
+python manage.py startapp collectstatic
+
+str - любая не пустая строка, исключая символ "/"
+int - любое положительное число, включая 0
+slug - латиница ASCII, символы дефиса и подчеркивания
+uuid - цифры, малые латинские символы ASCII, дефис
+path - любая не пустая строка, включает символ "/"
+
+
+inclusion tags - включающие теги
+
+
+templatetags
+	__init__.py
+	blog_tags.py
+	
+	
+Mixin
+
+utils.py
+
+@login_required()
+
+LoginRequiredMixin
+
+
+
