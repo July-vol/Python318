@@ -6,6 +6,12 @@
       <sourceFolder url="file://$MODULE_DIR$/second/personal_portfolio" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/seven/password_generator_project" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/second_/personal_portfolio" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/third/todos" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/eight1/personal_portfolio" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/eight2/personal_portfolio" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/eight3/personal_portfolio" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/five/personal_portfolio" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/nine/personal_portfolio" isTestSource="false" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />

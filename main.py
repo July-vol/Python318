@@ -3627,7 +3627,7 @@
 # print(remove(" Hello\nWorld "))
 
 # f = open("test.txt", "r")
-# f = open(r"C:\Users\Пользователь\Desktop\Обучение курсы\318\test.txt", "r")
+# f = open(r"C:\users\Пользователь\Desktop\Обучение курсы\318\test.txt", "r")
 # print(f)
 # print(*f)
 # # print(f.mode)
@@ -3938,8 +3938,8 @@
 #
 # remove_empty_dirs("nested1")
 
-# print(os.path.split(r"C:\Users\Пользователь\Desktop\Обучение курсы\nested1\nested2\nested3\text.txt"))
-# print(os.path.join(r"C:\Users\Пользователь\Desktop\Обучение курсы", "nested2", "text.txt"))
+# print(os.path.split(r"C:\users\Пользователь\Desktop\Обучение курсы\nested1\nested2\nested3\text.txt"))
+# print(os.path.join(r"C:\users\Пользователь\Desktop\Обучение курсы", "nested2", "text.txt"))
 
 # dirs = [r'Work\F1', r'Work\F2\F21']
 # for d in dirs:
@@ -3983,7 +3983,7 @@
 # Work\F2\F21\f212.txt
 
 #
-# print(os.path.exists(r"C:\Users\Пользователь\Desktop\Обучение курсы\nested1\nested2\nested3\text.txt"))  #
+# print(os.path.exists(r"C:\users\Пользователь\Desktop\Обучение курсы\nested1\nested2\nested3\text.txt"))  #
 # возвращает True если путь существует в # файловой системе
 # import time
 #
@@ -6743,12 +6743,12 @@
 #
 # todos_by_user = {}  # {1: 3, 2: 1}
 #
-# for todo in todos:
-#     if todo["completed"]:
+# for users in todos:
+#     if users["completed"]:
 #         try:
-#             todos_by_user[todo["userId"]] += 1  # todos_by_user[1] += 1 =>  todos_by_user[1] = todos_by_user[1] + 1
+#             todos_by_user[users["userId"]] += 1  # todos_by_user[1] += 1 =>  todos_by_user[1] = todos_by_user[1] + 1
 #         except KeyError:
-#             todos_by_user[todo["userId"]] = 1  # todos_by_user[1] = 1
+#             todos_by_user[users["userId"]] = 1  # todos_by_user[1] = 1
 #
 # print(todos_by_user)  # {1: 11, 2: 8, 3: 7, 4: 6, 5: 12, 6: 6, 7: 9, 8: 11, 9: 8, 10: 12}
 #

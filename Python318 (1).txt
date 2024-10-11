@@ -452,7 +452,7 @@ pip install django
 cd first
 
 django-admin startproject password_generator_project
-- новый проект
+- создать новый проект
 
 python manage.py runserver
 - запуск сервера
@@ -487,6 +487,7 @@ http://127.0.0.1:8000/blog/
 third
 django-admin startproject todos
 python manage.py startapp todo
+регистрируем в settings наше приложение   'todo.apps.TodoConfig',
 python manage.py migrate
 python manage.py createsuperuser
 
