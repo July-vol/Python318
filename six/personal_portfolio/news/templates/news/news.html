@@ -1,0 +1,19 @@
+{% extends 'skills/base.html' %}
+{% load static %}
+{% block content %}
+<div class="block">
+    <div class="element">
+<h1>Новости</h1>
+
+ {% for news in news %}
+    <div class="element">
+      <div>
+          <img src="{{ news.image.url }}" alt="">
+      </div>
+        <div class="text"> <h2><a href="{{ news.url }}" target="_blank"> {{ news.title}} </a></h2>
+        <p> {{ news.description }} </p>
+    </div>
+        {% endfor%}
+    </div>
+{% endblock%}
+  </div>

@@ -34,7 +34,6 @@ def currenttodos(request):
     return render(request, 'todo/currenttodos.html', {'todos': todos})
 
 
-
 def home(request):
     return render(request, 'todo/home.html')
 

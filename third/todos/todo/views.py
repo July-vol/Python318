@@ -25,7 +25,7 @@ def signupuser(request):
                                'error': 'Such a username already exists. Ask another question'})
         else:
             return render(request, 'users/signupusers.html', {'form': UserCreationForm(), 'error': "Passwords don`t "
-                                                                                                  "match"})
+                                                                                                   "match"})
 
 
 @login_required
@@ -112,3 +112,6 @@ def deletetodo(request, todo_pk):
     if request.method == "POST":
         todo.delete()
         return redirect('currenttodos')
+
+
+
